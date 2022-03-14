@@ -2,8 +2,10 @@
 <html>
 <head>
 	<title>fasilitas</title>
+    <?php include 'partisi/head.php'; ?>
 </head>
 <body>
+    <?php include 'partisi/navbar.php'; ?>
 <h1>TAMPILAN FASILITAS</h1>
 <a href="<?php echo site_url('admin/Fasilitas/Add') ?>">TAMBAH DATA</a><br>
 <table>
@@ -35,7 +37,7 @@
                 <?php echo $Get->isi_fasilitas ?>
             </td>
             <td width="250">
-                <a href="<?php echo site_url('admin/fasilitas/edit/'.$Get->id_fasilitas) ?>"
+                <a href="<?php echo site_url('admin/fasilitas/DataDetail/'.$Get->id_fasilitas).'/view' ?>"
                  class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
                 <a 
                  href="<?php echo site_url('admin/Fasilitas/DeleteFasilitas/'.$Get->id_fasilitas) ?>" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
@@ -46,5 +48,7 @@
         </tbody>
 
 </table>
+
+<?php include 'partisi/footer.php'; ?>
 </body>
 </html>

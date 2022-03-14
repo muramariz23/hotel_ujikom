@@ -5,7 +5,10 @@ class Fasilitas extends CI_Controller {
 
 	function __construct(){
 	parent::__construct();
-	$this->load->model('admin/Fasilitas_model');
+	if ($this->session->userdata('status') != 'admin') {
+            redirect(site_url('Login'));
+        }
+	$this->load->model('admin/Fasilitas_model');		
 	}
 
 	function index()
@@ -30,13 +33,14 @@ class Fasilitas extends CI_Controller {
 
 
 
-	function UpdateFasilitas()
+	function EditFasilitas()
 	{
-		 $nis=$this->input->post('txt_nis');
-		 $update['nama']= $this->input->post('txt_nama');
-         	 $update['no_tlp']= $this->input->post('txt_no_tlp');
-          	 $this->Fasilitas_model->UpdateData('tbl_siswa','nis',$nis,$update);
-		 redirect(site_url('Welcome/DataSiswa'));
+		 $id_fasilitas=$this->input->post('txt_id_fasilitas');
+		 $update['no_fasilitas']= $this->input->post('txt_no_fasilitas');
+         $update['j_fasilitas']= $this->input->post('txt_j_fasilitas');
+         $update['isi_fasilitas']= $this->input->post('txt_isi_fasilitas');
+         $this->Fasilitas_model->UpdateData('fasilitas','id_fasilitas',$id_fasilitas,$update);
+		 redirect(site_url('admin/Fasilitas'));
 	}
 
 
@@ -51,23 +55,16 @@ class Fasilitas extends CI_Controller {
 	function DataDetail()
 	{
 
-		if($this->uri->segment(4)=='view')
+		if($this->uri->segment(5)=='view')
 		{
-			$nis=$this->uri->segment(3);
-			$tampil=$this->Fasilitas_model->GetDataWhere('tbl_siswa','nis',$nis)->row();
-			$data['detail']['nis']= $tampil->nis;
-            $data['detail']['nama']= $tampil->nama;
-            $data['detail']['no_tlp']= $tampil->no_tlp;
-			$data['content']='VFormUpdateSiswa';
+			$id_fasilitas=$this->uri->segment(4);
+			$tampil=$this->Fasilitas_model->GetDataWhere('fasilitas','id_fasilitas',$id_fasilitas)->row();
+			$data['detail']['id_fasilitas']= $tampil->id_fasilitas;
+			$data['detail']['no_fasilitas']= $tampil->no_fasilitas;
+            $data['detail']['j_fasilitas']= $tampil->j_fasilitas;
+            $data['detail']['isi_fasilitas']= $tampil->isi_fasilitas;
+			$this->load->view('admin/V_edit_fasilitas',$data);
 		}
-		else
-		{	
-			$data['DataSiswa']=$this->Fasilitas_model->GetData('tbl_siswa');
-			$data['content']='VSiswa';
-		}
-
-
-		$this->load->view('VBackend',$data);
 	}
 
 

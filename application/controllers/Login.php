@@ -5,8 +5,9 @@ class Login extends CI_Controller{
 	parent::__construct();
 	$this->load->model('login_model');
 	}
-	function index(){
-	$this->load->view('login_view');
+	function index(){		
+		$this->load->view('login_view');
+
 	}
 	function auth(){
 		$username = $this->input->post('username',TRUE);
