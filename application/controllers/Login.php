@@ -25,7 +25,7 @@ class Login extends CI_Controller{
 			$this->session->set_userdata($sesdata);
 			if($status == 'admin'){
 				$this->session->set_userdata('akses','admin');
-				redirect('admin/fasilitas');
+				redirect('admin/Dashboard');
 				}
 			elseif($status == 'petugas'){
 				$this->session->set_userdata('akses','petugas');
