@@ -37,15 +37,15 @@
 
 		@font-face{
 			font-family: "judul";
-			src: url('<?php echo base_url('assets/font/Kanit-SemiBold.ttf') ?>');
+			src: url('Kanit-SemiBold.ttf');
 		}
 		@font-face{
 			font-family: "hl";
-			src: url('<?php echo base_url('assets/font/Kanit-Black.ttf') ?>');
+			src: url('Kanit-Black.ttf');
 		}
 		@font-face{
 			font-family: "subjudul";
-			src: url('<?php echo base_url('assets/font/Kanit-Medium.ttf') ?>');
+			src: url('Kanit-Medium.ttf');
 		}
 		.judul{
 			text-align: center;
@@ -113,18 +113,14 @@ text-align: center;
 
 		.ablogo{
 			width: 10%;
-			transform: translate(450%);
-		}
-
-		.abtext{
-			text-align: center;
+			transform: translateX(50%);
 		}
 	</style>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg sticky-top navbar-light navku">
   <div class="container-fluid">
-    <img src="<?php echo base_url('assets/img/logo.png') ?>" class="navbar-brand logo">
+    <img src="logo.png" class="navbar-brand logo">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -142,13 +138,13 @@ text-align: center;
         <li class="nav-item">
           <a class="nav-link" href="#coba4"><button class="btn btn-outline-success">Reservasi</button></a>
         </li>
-         <li class="nav-item">
-          <a class="nav-link" href="#coba5"><button class="btn btn-outline-success">Tentang Kami</button></a>
-        </li>
+
         
        </ul>
-       	  <a href="<?php echo site_url('Login') ?>"><button class="btn btn-outline-success">Login</button></a>
-
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
     </div>
   </div>
 </nav>
@@ -284,9 +280,9 @@ text-align: center;
 				<form>
 					<select class="form-select isian" aria-label="Default select example">
   						<option selected>Tipe Kamar</option>
-  						<option value="1">Standar</option>
-  						<option value="2">Superior</option>
-  						<option value="3">Deluxe</option>
+  						<option value="1">One</option>
+  						<option value="2">Two</option>
+  						<option value="3">Three</option>
 					</select>
 
 					<div class="input-group mb-3 isian">
@@ -327,9 +323,9 @@ text-align: center;
 			<div class="konten">
 				<h1 class="headlaman">tentang kami</h1>
 				<div class="card tentang">
-					<img src="<?php echo base_url('assets/img/logo_owner.png') ?>" class="ablogo">
-  				<h2 class="abtext">Aplikasi Pemesanan Hotel Hebat merupakan sebuah website yang digunakan untuk melakukan pemesanan sebuah kamar hotel. </h2>
-  				<h1 class="abtext">KONTAK : 08551898882</h1>
+					<img src="logo_owner.png" class="ablogo">
+  				<p>Aplikasi Pemesanan Hotel Hebat merupakan sebuah website yang digunakan untuk melakukan
+  				pemesanan sebuah kamar hotel. </p>
   				
 				</div>
 			</div>
