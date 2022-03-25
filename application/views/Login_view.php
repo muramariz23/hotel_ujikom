@@ -5,77 +5,72 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <!--===============================================================================================-->
+
+<!-- style custome -->
+
+<style>
+
+	body{
+		background-color: #E5E3C9;
+	}
+
+
+	.wadah{
+		width: 350px;
+		height: 500px;
+		position: absolute;
+		top: 10%;
+		left: 40%;
+		border-radius: 10%;
+	}
+
+	.judul{
+		text-align: center;
+		padding-top: 5%;
+	}
+	.gambar{
+		padding: 10%;
+		width: 150px;
+		height: 150px;
+		transform: translateX(70%);
+			}
+
+	.logo{
+		width: 100%;
+		height: 100%;
+	}
+
+	.login{
+		padding: 10%;
+	}
+</style>
 </head>
 <body>
 	
-	<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100">
-				<form class="login100-form validate-form" action="<?php echo site_url('login/auth'); ?>" method="POST">
-					<span class="login100-form-title p-b-26">
-						Login dulu!
-					</span>
-					<span class="login100-form-title p-b-48">
-						<i class="zmdi zmdi-font"></i>
-					</span>
-
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="text" name="username">
-						<span class="focus-input100" data-placeholder="username"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<span class="btn-show-pass">
-							<i class="zmdi zmdi-eye"></i>
-						</span>
-						<input class="input100" type="password" name="password">
-						<span class="focus-input100" data-placeholder="Password"></span>
-					</div>
-
-					<div class="container-login100-form-btn">
-						<div class="wrap-login100-form-btn">
-							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn">
-								Login
-							</button>
-						</div>
-					</div>
-
-					<div class="text-center p-t-115">
-						<span class="txt1">
-							Don’t have an account?
-						</span>
-
-						<a class="txt2" href="#">
-							Sign Up
-						</a>
-					</div>
-				</form>
-			</div>
-		</div>
+	<div class="card wadah">
+		<h1 class="judul">LOGIN</h1>
+		<div class="gambar">
+		<img src="<?php echo base_url('assets/img/logo.png') ?>" class="logo">
 	</div>
-	
+	<form class="login" action="<?php echo site_url('login/auth'); ?>" method="POST">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Username</label>
+    <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  
+  <button type="submit" class="btn btn-primary form-control">Submit</button>
+</form>
+</div>
 
-	<div id="dropDownSelect1"></div>
-	
-<!--===============================================================================================-->
-	<script src="<?php echo base_url('assets/Login_v2/vendor/jquery/jquery-3.2.1.min.js'); ?>"></script>
-<!--===============================================================================================-->
-	<script src="<?php echo base_url('assets/Login_v2/vendor/animsition/js/animsition.min.js'); ?>"></script>
-<!--===============================================================================================-->
-	<script src="<?php echo base_url('assets/Login_v2/vendor/bootstrap/js/popper.js'); ?>"></script>
-	<script src="<?php echo base_url('assets/Login_v2/vendor/bootstrap/js/bootstrap.min.js'); ?>"></script>
-<!--===============================================================================================-->
-	<script src="<?php echo base_url('assets/Login_v2/vendor/select2/select2.min.js'); ?>"></script>
-<!--===============================================================================================-->
-	<script src="<?php echo base_url('assets/Login_v2/vendor/daterangepicker/moment.min.js'); ?>"></script>
-	<script src="<?php echo base_url('assets/Login_v2/vendor/daterangepicker/daterangepicker.js'); ?>"></script>
-<!--===============================================================================================-->
-	<script src="<?php echo base_url('assets/Login_v2/vendor/countdowntime/countdowntime.js'); ?>"></script>
-<!--===============================================================================================-->
-	<script src="<?php echo base_url('assets/Login_v2/js/main.js'); ?>"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 </body>
 </html>

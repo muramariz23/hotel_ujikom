@@ -6,24 +6,27 @@
 </head>
 <body>
     <?php include 'partisi/navbar.php'; ?>
-<h1>TAMPILAN FASILITAS</h1>
+<h1>DATA FASILITAS</h1>
 <a href="<?php echo site_url('admin/Fasilitas/Add') ?>">TAMBAH DATA</a><br>
-<table>
-	<thead>
-		<tr>
-		<td>No</td>
-		<td>ID Fasilitas</td>
-		<td>Nomer Fasilitas</td>
-		<td>Jenis Fasilitas</td>
-		<td>Isi Fasilitas</td>
-		<td>tindakan</td>
-		</tr>
-	</thead>
-	<tbody>
-        <?php $no = 1; ?>
+
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">ID Fasilitas</th>
+      <th scope="col">Nomer Fasilitas</th>
+      <th scope="col">Jenis Fasilitas</th>
+      <th scope="col">Isi Fasilitas</th>
+      <th scope="col">tindakan</th>
+    </tr>
+  </thead>
+  <tbody>
+       <?php $no = 1; ?>
         <?php foreach ($GetFasilitas as $Get): ?>
         <tr>
-            <td><?php echo $no++; ?></td>
+            <td scope="row"><?php echo $no++; ?></td>
             <td width="150">
                 <?php echo $Get->id_fasilitas ?>
             </td>
@@ -45,9 +48,9 @@
         </tr>
         <?php endforeach; ?>
 
-        </tbody>
-
+  </tbody>
 </table>
+
 
 <?php include 'partisi/footer.php'; ?>
 </body>
