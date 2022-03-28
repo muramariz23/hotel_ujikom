@@ -16,8 +16,8 @@ class Kamar extends CI_Controller {
 
 	function Add()
 	{
-		$data['GetKamar']= $this->Kamar_model->GetData('kamar');
-		$this->load->view('admin/V_add_kamar');
+		$data['GetFasilitas']= $this->Kamar_model->GetData('fasilitas');
+		$this->load->view('admin/V_add_kamar', $data);
 	}
 	function AddKamar()
 	{
@@ -55,28 +55,24 @@ class Kamar extends CI_Controller {
 
 	function DataDetail()
 	{
+		if ($this->uri->segment(5) == 'view') {
+				$data['GetFasilitas'] = $this->Kamar_model->GetData('fasilitas');
+				
 
-		if($this->uri->segment(5)=='view')
-		{
-			$id_kamar=$this->uri->segment(4);
-			$tampil=$this->Kamar_model->GetDataWhere('kamar','id_kamar',$id_kamar)->row();
-			$data['detail']['id_kamar']= $tampil->id_kamar;
-			$data['detail']['no_kamar']= $tampil->no_kamar;
-            $data['detail']['tipe_kasur']= $tampil->tipe_kasur;
-            $data['detail']['tipe_kamar']= $tampil->tipe_kamar;
-            $data['detail']['id_fasilitas']= $tampil->id_fasilitas;
-            $data['detail']['gambar_kamar']= $tampil->gambar_kamar;
-			$this->load->view('admin/V_edit_kamar',$data);
+				$id_peminjaman = $this->uri->segment(4);
+				$onjoin = "kamar.id_fasilitas = fasilitas.id_fasilitas";
+				$tampil = $this->Kamar_model->GetDataJoinWhere('kamar', 'fasilitas', $onjoin, 'id_fasilitas', $id_fasilitas)->row();
+				$data['detail']['id_kamar']= $tampil->id_kamar;
+				$data['detail']['no_kamar']= $tampil->no_kamar;
+            	$data['detail']['tipe_kasur']= $tampil->tipe_kasur;
+            	$data['detail']['tipe_kamar']= $tampil->tipe_kamar;
+            	$data['detail']['id_fasilitas']= $tampil->id_fasilitas;
+            	$data['detail']['gambar_kamar']= $tampil->gambar_kamar;
+				$this->load->view('v_edit_kamar', $data);
+
+			}
+
 		}
-	}
 
-
-	
-	function Logout()
-	{
-		$this->load->library('session');
-		$this->session->unset_userdata('Login');
-		redirect(site_url('Login'));
-	}
 
 }
