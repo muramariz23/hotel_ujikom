@@ -40,13 +40,12 @@ class Kamar_model extends CI_Model
         return $query->result();
     }
 
-    function GetDataJoinWhere($tabel1, $tabel2, $tabel3, $onjoin, $id, $data)
+    function GetDataJoinWhere($tabel1, $tabel2, $onjoin, $id, $data)
     {
 
         $this->db->select('*');
         $this->db->from($tabel1);
-        $this->db->from($tabel2);
-        $this->db->join($tabel3, $onjoin);
+        $this->db->join($tabel2, $onjoin);
         $this->db->where($id, $data);
         $query = $this->db->get();
         return $query;

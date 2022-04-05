@@ -6,7 +6,7 @@
 </head>
 <body>
     <?php include 'partisi/navbar.php'; ?>
-<h1>DATA FASILITAS</h1>
+<h1>DATA KAMAR</h1>
 <a href="<?php echo site_url('admin/Kamar/Add') ?>">TAMBAH DATA</a><br>
 
 
@@ -15,24 +15,46 @@
         <div class="table-responsive"> 
             <table id="myTable" class="table  table-striped table-bordered" style="width:100%;">
                 <thead class="bg-secondary text-white">
-                    <tr>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
-                    </tr>
+                  <tr>
+                    <th>No</th>
+                    <th>ID Kamar</th>
+                    <th>No Kamar</th>
+                    <th>Tipe Kasur</th>
+                    <th>Tipe Kamar</th>
+                    <th>No Fasilitas</th>
+                    <th>Gambar Kamar</th>
+                    <th>tindakan</th>
+                  </tr>
                 </thead>
                 <tbody>
+                           <?php $no = 1; ?>
+                    <?php foreach ($GetKamar as $Get): ?>
                     <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td>2011/04/25</td>
-                        <td>$320,800</td>
+                        <td ><?php echo $no++; ?></td>
+                        <td width="150">
+                           <?php echo $Get->id_kamar ?>
+                        </td>
+                        <td>
+                            <?php echo $Get->no_kamar ?>
+                       </td>
+                        <td>
+                           <?php echo $Get->tipe_kasur ?>
+                        </td>
+                        <td>
+                            <?php echo $Get->tipe_kamar ?>
+                        </td>
+                        <td>
+                            <?php echo $Get->no_fasilitas ?>
+                        </td>
+                        <td>
+                            <img src="<?php echo base_url('assets/img/') . $Get->gambar_kamar ?>">
+                        </td>
+                        <td width="250">
+                            <a href="<?php echo site_url('admin/Kamar/DataDetail/'.$Get->id_kamar).'/view' ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
+                            <a href="<?php echo site_url('admin/Kamar/DeleteKamar/'.$Get->id_kamar) ?>" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                       </td>
                     </tr>
+                    <?php endforeach; ?>
                     <tr>
                         <td>Garrett Winters</td>
                         <td>Accountant</td>
@@ -40,6 +62,8 @@
                         <td>63</td>
                         <td>2011/07/25</td>
                         <td>$170,750</td>
+                        <td>2011/04/25</td>
+                        <td>$320,800</td>
                     </tr>
                     <tr>
                         <td>Ashton Cox</td>
@@ -48,6 +72,8 @@
                         <td>66</td>
                         <td>2009/01/12</td>
                         <td>$86,000</td>
+                        <td>2011/04/25</td>
+                        <td>$320,800</td>
                     </tr>
                     <tr>
                         <td>Cedric Kelly</td>
@@ -56,6 +82,8 @@
                         <td>22</td>
                         <td>2012/03/29</td>
                         <td>$433,060</td>
+                        <td>2011/04/25</td>
+                        <td>$320,800</td>
                     </tr>
                     <tr>
                         <td>Airi Satou</td>
@@ -64,6 +92,8 @@
                         <td>33</td>
                         <td>2008/11/28</td>
                         <td>$162,700</td>
+                        <td>2011/04/25</td>
+                        <td>$320,800</td>
                     </tr>
                     <tr>
                         <td>Brielle Williamson</td>
@@ -72,6 +102,8 @@
                         <td>61</td>
                         <td>2012/12/02</td>
                         <td>$372,000</td>
+                        <td>2011/04/25</td>
+                        <td>$320,800</td>
                     </tr>
                     <tr>
                         <td>Herrod Chandler</td>
@@ -80,6 +112,8 @@
                         <td>59</td>
                         <td>2012/08/06</td>
                         <td>$137,500</td>
+                        <td>2011/04/25</td>
+                        <td>$320,800</td>
                     </tr>
                     <tr>
                         <td>Rhona Davidson</td>
@@ -88,6 +122,8 @@
                         <td>55</td>
                         <td>2010/10/14</td>
                         <td>$327,900</td>
+                        <td>2011/04/25</td>
+                        <td>$320,800</td>
                     </tr>
                     <tr>
                         <td>Colleen Hurst</td>
@@ -96,6 +132,8 @@
                         <td>39</td>
                         <td>2009/09/15</td>
                         <td>$205,500</td>
+                        <td>2011/04/25</td>
+                        <td>$320,800</td>
                     </tr>
                     <tr>
                         <td>Sonya Frost</td>
@@ -104,6 +142,8 @@
                         <td>23</td>
                         <td>2008/12/13</td>
                         <td>$103,600</td>
+                        <td>2011/04/25</td>
+                        <td>$320,800</td>
                     </tr>
                     <tr>
                         <td>Jena Gaines</td>
@@ -112,6 +152,8 @@
                         <td>30</td>
                         <td>2008/12/19</td>
                         <td>$90,560</td>
+                        <td>2011/04/25</td>
+                        <td>$320,800</td>
                     </tr>
                     <tr>
                         <td>Quinn Flynn</td>
@@ -120,6 +162,8 @@
                         <td>22</td>
                         <td>2013/03/03</td>
                         <td>$342,000</td>
+                        <td>2011/04/25</td>
+                        <td>$320,800</td>
                     </tr>
                     <tr>
                         <td>Charde Marshall</td>
@@ -128,6 +172,8 @@
                         <td>36</td>
                         <td>2008/10/16</td>
                         <td>$470,600</td>
+                        <td>2011/04/25</td>
+                        <td>$320,800</td>
                     </tr>
                     <tr>
                         <td>Haley Kennedy</td>
@@ -136,6 +182,8 @@
                         <td>43</td>
                         <td>2012/12/18</td>
                         <td>$313,500</td>
+                        <td>2011/04/25</td>
+                        <td>$320,800</td>
                     </tr>
 
                 </tbody>
@@ -152,48 +200,10 @@
 <!-- 
 <table class="table">
   <thead>
-    <tr>
-      <th scope="col">No</th>
-      <th scope="col">ID Kamar</th>
-      <th scope="col">No Kamar</th>
-      <th scope="col">Tipe Kasur</th>
-      <th scope="col">Tipe Kamar</th>
-      <th scope="col">No Fasilitas</th>
-      <th scope="col">Gambar Kamar</th>
-      <th scope="col">tindakan</th>
-    </tr>
+
   </thead>
   <tbody>
-       <?php $no = 1; ?>
-        <?php foreach ($GetKamar as $Get): ?>
-        <tr>
-            <td scope="row"><?php echo $no++; ?></td>
-            <td width="150">
-                <?php echo $Get->id_kamar ?>
-            </td>
-            <td>
-                <?php echo $Get->no_kamar ?>
-            </td>
-            <td>
-                <?php echo $Get->tipe_kasur ?>
-            </td>
-            <td>
-                <?php echo $Get->tipe_kamar ?>
-            </td>
-            <td>
-                <?php echo $Get->no_fasilitas ?>
-            </td>
-            <td>
-                <?php echo $Get->gambar_kamar ?>
-            </td>
-            <td width="250">
-                <a href="<?php echo site_url('admin/Kamar/DataDetail/'.$Get->id_kamar).'/view' ?>"
-                 class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
-                <a 
-                 href="<?php echo site_url('admin/Kamar/DeleteKamar/'.$Get->id_kamar) ?>" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
-            </td>
-        </tr>
-        <?php endforeach; ?>
+
 
   </tbody>
 </table> -->
@@ -204,7 +214,8 @@
          $('#myTable').DataTable({
             "scrollY": "250px",
             "scrollCollapse": true,
-            
+                    "paging":   false,
+
          });
         });
     </script>

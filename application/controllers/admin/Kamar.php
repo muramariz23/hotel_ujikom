@@ -19,14 +19,35 @@ class Kamar extends CI_Controller {
 		$data['GetFasilitas']= $this->Kamar_model->GetData('fasilitas');
 		$this->load->view('admin/V_add_kamar', $data);
 	}
+
 	function AddKamar()
 	{
 		 	$add['no_kamar']=$this->input->post('txt_no_kamar');
          	 $add['tipe_kasur']= $this->input->post('txt_tipe_kasur');
          	 $add['tipe_kamar']= $this->input->post('txt_tipe_kamar');  
          	 $add['id_fasilitas']= $this->input->post('txt_id_fasilitas');  
-         	 $add['gambar_kamar']= $this->input->post('txt_gambar_kamar');  
-        	 $this->Fasilitas_model->AddData('kamar',$add);
+         	 
+
+			$upload_gambar = $_FILES['txt_gambar_kamar']['name'];
+
+			if($upload_gambar) {
+				$config['upload_path'] = './assets/img/';
+				$config['allowed_types'] = 'png|jpg|jpeg';
+				$config['file_name'] = 'img-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+				$config['max_size'] = 7084;
+
+				$this->load->library('upload');
+
+				 $this->upload->initialize($config);
+
+				 if ($this->upload->do_upload('txt_gambar_kamar')) {
+					$Image = $this->upload->data('file_name');
+					$this->db->set('gambar_kamar', $Image);
+				}
+			}
+
+
+        	 $this->Kamar_model->AddData('kamar',$add);
         	 redirect(site_url('admin/Kamar'));
 	}
 
@@ -59,16 +80,16 @@ class Kamar extends CI_Controller {
 				$data['GetFasilitas'] = $this->Kamar_model->GetData('fasilitas');
 				
 
-				$id_peminjaman = $this->uri->segment(4);
+				$id_kamar = $this->uri->segment(4);
 				$onjoin = "kamar.id_fasilitas = fasilitas.id_fasilitas";
-				$tampil = $this->Kamar_model->GetDataJoinWhere('kamar', 'fasilitas', $onjoin, 'id_fasilitas', $id_fasilitas)->row();
+				$tampil = $this->Kamar_model->GetDataJoinWhere('kamar', 'fasilitas', $onjoin, 'id_kamar', $id_kamar)->row();
 				$data['detail']['id_kamar']= $tampil->id_kamar;
 				$data['detail']['no_kamar']= $tampil->no_kamar;
             	$data['detail']['tipe_kasur']= $tampil->tipe_kasur;
             	$data['detail']['tipe_kamar']= $tampil->tipe_kamar;
             	$data['detail']['id_fasilitas']= $tampil->id_fasilitas;
             	$data['detail']['gambar_kamar']= $tampil->gambar_kamar;
-				$this->load->view('v_edit_kamar', $data);
+				$this->load->view('admin/V_edit_kamar', $data);
 
 			}
 
