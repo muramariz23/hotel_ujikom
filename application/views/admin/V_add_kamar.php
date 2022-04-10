@@ -22,7 +22,7 @@
 <div class="card wadah bg-light">
 
 	<h1>TAMBAH DATA KAMAR</h1>
-<form action="<?php echo site_url('admin/Kamar/AddKamar'); ?>" method="post">
+<form action="<?php echo site_url('admin/Kamar/AddKamar'); ?>" enctype="multipart/form-data" method="post">
 	<div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">Nomer Kamar</span>
   <input type="text" name="txt_no_kamar" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
@@ -30,7 +30,7 @@
 
 <div class="input-group mb-3">
   <label class="input-group-text" for="inputGroupSelect01">Tipe Kasur</label>
-  <select class="form-select" name="txt_j_fasilitas" id="inputGroupSelect01">
+  <select class="form-select" name="txt_tipe_kasur" id="inputGroupSelect01">
     <option selected>Pilihan</option>
     <option value="single">single</option>
     <option value="double">double</option>
@@ -39,17 +39,27 @@
 </div>
 
 <div class="input-group mb-3">
-  			<span class="input-group-text" id="inputGroup-sizing-default">NAMA PEMINJAM</span>
-		<select class="form-select" name="txt_id_siswa" aria-label="Default select example">
-  			<?php foreach ($GetSiswa as $Get) : ?>
-				<option value="<?php echo $Get->id_siswa ?>"><?php echo $Get->nama; ?></option>
+  <label class="input-group-text" for="inputGroupSelect01">Tipe Kamar</label>
+  <select class="form-select" name="txt_tipe_kamar" id="inputGroupSelect01">
+    <option selected>Pilihan</option>
+    <option value="standar">standar</option>
+    <option value="superior">superior</option>
+    <option value="deluxe">deluxe</option>
+  </select>
+</div>
+
+<div class="input-group mb-3">
+  			<span class="input-group-text" id="inputGroup-sizing-default">Nomer Fasilitas</span>
+		<select class="form-select" name="txt_id_fasilitas" aria-label="Default select example">
+  			<?php foreach ($GetFasilitas as $Get) : ?>
+				<option value="<?php echo $Get->id_fasilitas ?>"><?php echo $Get->no_fasilitas; ?></option>
 			<?php endforeach; ?>
 		</select>
 		</div>
 
 <div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">Isi Fasilitas</span>
-  <input type="text" name="txt_isi_fasilitas" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+  <input type="file" name="txt_gambar_kamar" class="form-control" placeholder="Pilih File Gambar" aria-label="Username" aria-describedby="basic-addon1">
 </div>
 	
 	<input class="btn-outline-primary form-control" type="submit" value="Simpan">

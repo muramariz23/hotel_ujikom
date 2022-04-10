@@ -25,8 +25,28 @@ class Kamar extends CI_Controller {
          	 $add['tipe_kasur']= $this->input->post('txt_tipe_kasur');
          	 $add['tipe_kamar']= $this->input->post('txt_tipe_kamar');  
          	 $add['id_fasilitas']= $this->input->post('txt_id_fasilitas');  
-         	 $add['gambar_kamar']= $this->input->post('txt_gambar_kamar');  
-        	 $this->Fasilitas_model->AddData('kamar',$add);
+         	 
+
+			$upload_gambar = $_FILES['txt_gambar_kamar']['name'];
+
+			if($upload_gambar) {
+				$config['upload_path'] = './assets/img/';
+				$config['allowed_types'] = 'png|jpg|jpeg';
+				$config['file_name'] = 'image-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+				$config['max_size'] = 7084;
+
+				$this->load->library('upload');
+
+				 $this->upload->initialize($config);
+
+				 if ($this->upload->do_upload('txt_gambar_kamar')) {
+					$Image = $this->upload->data('file_name');
+					$this->db->set('gambar_kamar', $Image);
+				}
+			}
+
+
+        	 $this->Kamar_model->AddData('kamar',$add);
         	 redirect(site_url('admin/Kamar'));
 	}
 
