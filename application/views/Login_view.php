@@ -31,7 +31,7 @@
 		padding-top: 5%;
 	}
 	.gambar{
-		padding: 10%;
+		padding: 5%;
 		width: 150px;
 		height: 150px;
 		transform: translateX(70%);
@@ -49,19 +49,19 @@
 </head>
 <body>
 	
-	<div class="card wadah">
+	<div class="card wadah font-monospace">
 		<h1 class="judul">LOGIN</h1>
 		<div class="gambar">
 		<img src="<?php echo base_url('assets/img/logo.png') ?>" class="logo">
 	</div>
 	<form class="login" action="<?php echo site_url('login/auth'); ?>" method="POST">
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Username</label>
+    <label for="exampleInputEmail1" class="form-label" style="font-size: 20px;">Username</label>
     <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
     
   </div>
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <label for="exampleInputPassword1" class="form-label" style="font-size: 20px;">Password</label>
     <input type="password" name="password" class="form-control" id="exampleInputPassword1">
   </div>
   

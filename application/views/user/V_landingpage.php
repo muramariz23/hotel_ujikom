@@ -11,7 +11,7 @@
 					}
 
 		.navku{
-			background-color: #93FFD8;
+			background-color: rgba(100, 200, 200, 0.7);
 		}
 
 		.logo{
@@ -90,6 +90,8 @@ text-align: center;
 		}
 
 		.formulir{
+			border: none;
+			background-color: transparent;
 			transform: translate(5%);
 			width: 90%;
 			height: 70%; 
@@ -106,9 +108,15 @@ text-align: center;
 		}
 
 		.tentang{
+			border-radius: 5%;
 			width: 80%;
 			height: 100%;
 			transform: translate(12%);
+			background-color: transparent;
+		}
+
+		.tentang:hover{
+			background-color: white
 		}
 
 		.ablogo{
@@ -131,23 +139,25 @@ text-align: center;
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="#coba1"><button class="btn btn-outline-success">Home</button></a>
+          <a class="nav-link" href="#coba1"><button class="btn btn-outline-dark">Home</button></a>
         </li>
          <li class="nav-item">
-          <a class="nav-link" href="#coba2"><button class="btn btn-outline-success">Kamar</button></a>
+          <a class="nav-link" href="#coba2"><button class="btn btn-outline-dark">Kamar</button></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#coba3"><button class="btn btn-outline-success">Fasilitas</button></a>
+          <a class="nav-link" href="#coba3"><button class="btn btn-outline-dark">Fasilitas</button></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#coba4"><button class="btn btn-outline-success">Reservasi</button></a>
+          <a class="nav-link" href="#coba4"><button class="btn btn-outline-dark">Reservasi</button></a>
         </li>
          <li class="nav-item">
-          <a class="nav-link" href="#coba5"><button class="btn btn-outline-success">Tentang Kami</button></a>
+          <a class="nav-link" href="#coba5"><button class="btn btn-outline-dark">Tentang Kami</button></a>
         </li>
         
        </ul>
-       	  <a href="<?php echo site_url('Login') ?>"><button class="btn btn-outline-success">Login</button></a>
+       	  <a href="<?php echo site_url('Login') ?>"><button class="btn btn-primary">Registrasi</button></a>
+       	  <h1> | </h1>
+       	  <a href="<?php echo site_url('Login') ?>"><button class="btn btn-warning">Login</button></a>
 
     </div>
   </div>
@@ -313,7 +323,7 @@ text-align: center;
   						<span class="input-group-text" id="basic-addon1">Nama Tamu</span>
   						<input type="text" class="form-control" aria-label="nama" aria-describedby="basic-addon1">
 					</div>
-					<input type="submit" name="" class="isian bg-success">
+					<input type="submit" name="" class="isian btn btn-success">
 				</form>
 			</div>
 		
@@ -328,7 +338,7 @@ text-align: center;
 				<h1 class="headlaman">tentang kami</h1>
 				<div class="card tentang">
 					<img src="<?php echo base_url('assets/img/logo_owner.png') ?>" class="ablogo">
-  				<h2 class="abtext">Aplikasi Pemesanan Hotel Hebat merupakan sebuah website yang digunakan untuk melakukan pemesanan sebuah kamar hotel. </h2>
+  				<h2 class="abtext">Aplikasi Pemesanan Hotel Hebat merupakan sebuah website yang digunakan untuk melakukan pemesanan sebuah kamar hotel secara online.</h2>
   				<h1 class="abtext">KONTAK : 08551898882</h1>
   				
 				</div>

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Kamar_model extends CI_Model
+class Pegawai_model extends CI_Model
 {
     function AddData($tabel, $data)
     {
@@ -34,8 +34,8 @@ class Kamar_model extends CI_Model
     function getAll()
     {
         $this->db->select('*');
-        $this->db->from('kamar');
-        $this->db->join('fasilitas', 'kamar.id_fasilitas=fasilitas.id_fasilitas');
+        $this->db->from('pegawai');
+        $this->db->join('login', 'pegawai.id_login=login.id_login');
         $query = $this->db->get();
         return $query->result();
     }

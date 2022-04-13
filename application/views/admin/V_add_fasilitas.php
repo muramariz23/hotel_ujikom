@@ -3,18 +3,7 @@
 <head>
 	<title>Tambah Data</title>
 	<?php include 'partisi/head.php'; ?>
-	<style>
-		.wadah{
-		width: 750px;
-		height: 500px;
-		justify-content: center;
-		border-radius: 10%;
-		position: absolute;
-		top: 10%;
-		left: 20%;
-		padding: 5%;
-	}
-	</style>
+	
 </head>
 <body>
 <?php include 'partisi/navbar.php'; ?>

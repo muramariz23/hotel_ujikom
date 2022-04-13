@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>fasilitas</title>
+	<title>Pegawai</title>
     <?php include 'partisi/head.php'; ?>
 </head>
 <body>
     <?php include 'partisi/navbar.php'; ?>
-<h1>DATA KAMAR</h1>
-<a href="<?php echo site_url('admin/Kamar/Add') ?>">TAMBAH DATA</a><br>
+<h1>DATA PEGAWAI</h1>
+<a href="<?php echo site_url('admin/Pegawai/AddUser') ?>">TAMBAH DATA</a><br>
 
 
 <div class="card-header">
@@ -17,41 +17,37 @@
                 <thead class="bg-secondary text-white">
                   <tr>
                     <th>No</th>
-                    <th>ID Kamar</th>
-                    <th>No Kamar</th>
-                    <th>Tipe Kasur</th>
-                    <th>Tipe Kamar</th>
-                    <th>No Fasilitas</th>
-                    <th>Gambar Kamar</th>
+                    <th>ID Pegawai</th>
+                    <th>Username</th>
+                    <th>Nama Pegawai</th>
+                    <th>Alamat</th>
+                    <th>Status Pegawai</th>
                     <th>tindakan</th>
                   </tr>
                 </thead>
                 <tbody>
                            <?php $no = 1; ?>
-                    <?php foreach ($GetKamar as $Get): ?>
+                    <?php foreach ($GetPegawai as $Get): ?>
                     <tr>
                         <td ><?php echo $no++; ?></td>
                         <td width="150">
-                           <?php echo $Get->id_kamar ?>
+                           <?php echo $Get->id_pegawai ?>
                         </td>
                         <td>
-                            <?php echo $Get->no_kamar ?>
+                            <?php echo $Get->username ?>
                        </td>
                         <td>
-                           <?php echo $Get->tipe_kasur ?>
+                           <?php echo $Get->nama_pegawai ?>
                         </td>
                         <td>
-                            <?php echo $Get->tipe_kamar ?>
+                            <?php echo $Get->alamat ?>
                         </td>
                         <td>
-                            <?php echo $Get->no_fasilitas ?>
-                        </td>
-                        <td>
-                            <img style="width: 100px; height: 100px;" src="<?php echo base_url('assets/img/') . $Get->gambar_kamar ?>">
+                            <?php echo $Get->stat_pegawai ?>
                         </td>
                         <td width="250">
-                            <a href="<?php echo site_url('admin/Kamar/DataDetail/'.$Get->id_kamar).'/view' ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
-                            <a href="<?php echo site_url('admin/Kamar/DeleteKamar/'.$Get->id_kamar.'/'.$Get->gambar_kamar) ?>" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                            <a href="<?php echo site_url('admin/Pegawai/DataDetail/'.$Get->id_pegawai).'/view' ?>" class="btn btn-outline-info"> Edit</a>
+                            <a href="<?php echo site_url('admin/Pegawai/DeletePegawai/'.$Get->id_pegawai.'/'.$Get->id_login) ?>" class="btn btn-outline-danger"> Hapus</a>
                        </td>
                     </tr>
                     <?php endforeach; ?>
@@ -63,7 +59,6 @@
                         <td>2011/07/25</td>
                         <td>$170,750</td>
                         <td>2011/04/25</td>
-                        <td>$320,800</td>
                     </tr>
                     <tr>
                         <td>Ashton Cox</td>
@@ -73,7 +68,6 @@
                         <td>2009/01/12</td>
                         <td>$86,000</td>
                         <td>2011/04/25</td>
-                        <td>$320,800</td>
                     </tr>
                     <tr>
                         <td>Cedric Kelly</td>
@@ -83,7 +77,6 @@
                         <td>2012/03/29</td>
                         <td>$433,060</td>
                         <td>2011/04/25</td>
-                        <td>$320,800</td>
                     </tr>
                     <tr>
                         <td>Airi Satou</td>
@@ -93,7 +86,6 @@
                         <td>2008/11/28</td>
                         <td>$162,700</td>
                         <td>2011/04/25</td>
-                        <td>$320,800</td>
                     </tr>
                     <tr>
                         <td>Brielle Williamson</td>
@@ -103,7 +95,6 @@
                         <td>2012/12/02</td>
                         <td>$372,000</td>
                         <td>2011/04/25</td>
-                        <td>$320,800</td>
                     </tr>
                     <tr>
                         <td>Herrod Chandler</td>
@@ -113,7 +104,6 @@
                         <td>2012/08/06</td>
                         <td>$137,500</td>
                         <td>2011/04/25</td>
-                        <td>$320,800</td>
                     </tr>
                     <tr>
                         <td>Rhona Davidson</td>
@@ -123,7 +113,6 @@
                         <td>2010/10/14</td>
                         <td>$327,900</td>
                         <td>2011/04/25</td>
-                        <td>$320,800</td>
                     </tr>
                     <tr>
                         <td>Colleen Hurst</td>
@@ -133,7 +122,6 @@
                         <td>2009/09/15</td>
                         <td>$205,500</td>
                         <td>2011/04/25</td>
-                        <td>$320,800</td>
                     </tr>
                     <tr>
                         <td>Sonya Frost</td>
@@ -143,7 +131,6 @@
                         <td>2008/12/13</td>
                         <td>$103,600</td>
                         <td>2011/04/25</td>
-                        <td>$320,800</td>
                     </tr>
                     <tr>
                         <td>Jena Gaines</td>
@@ -153,7 +140,6 @@
                         <td>2008/12/19</td>
                         <td>$90,560</td>
                         <td>2011/04/25</td>
-                        <td>$320,800</td>
                     </tr>
                     <tr>
                         <td>Quinn Flynn</td>
@@ -163,7 +149,6 @@
                         <td>2013/03/03</td>
                         <td>$342,000</td>
                         <td>2011/04/25</td>
-                        <td>$320,800</td>
                     </tr>
                     <tr>
                         <td>Charde Marshall</td>
@@ -173,7 +158,6 @@
                         <td>2008/10/16</td>
                         <td>$470,600</td>
                         <td>2011/04/25</td>
-                        <td>$320,800</td>
                     </tr>
                     <tr>
                         <td>Haley Kennedy</td>
@@ -183,7 +167,6 @@
                         <td>2012/12/18</td>
                         <td>$313,500</td>
                         <td>2011/04/25</td>
-                        <td>$320,800</td>
                     </tr>
 
                 </tbody>
@@ -196,17 +179,6 @@
 
 
 
-
-<!-- 
-<table class="table">
-  <thead>
-
-  </thead>
-  <tbody>
-
-
-  </tbody>
-</table> -->
 
 
 <script>

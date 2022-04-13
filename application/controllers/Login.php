@@ -27,13 +27,13 @@ class Login extends CI_Controller{
 				$this->session->set_userdata('akses','admin');
 				redirect('admin/Dashboard');
 				}
-			elseif($status == 'petugas'){
-				$this->session->set_userdata('akses','petugas');
-				redirect('admin/pembayaran');
+			elseif($status == 'pegawai'){
+				$this->session->set_userdata('akses','pegawai');
+				redirect('admin/pegawai');
 				}
-			elseif ($status == 'siswa') {
-				$this->session->set_userdata('akses', 'siswa');
-				redirect('admin/pembayaran');
+			elseif ($status == 'pengguna') {
+				$this->session->set_userdata('akses', 'pengguna');
+				redirect('admin/pengguna');
 				}
 			}
 			else
