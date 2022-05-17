@@ -3,9 +3,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pegawai_model extends CI_Model
 {
-    function AddData($tabel, $data)
+    function AddDataUser($uname,$pass,$stat)
     {
-        $this->db->insert($tabel,$data);
+         $query = $this->db->query("CALL simpan_login('$uname','$pass','$stat');");
+
+        return $query;
+    }
+
+    function Lengkapi($id_log)
+    {
+         $query = $this->db->query("CALL panggil_login_kondisi('$id_log');");
+
+        return $query->row();
+    }
+
+    function AddDataPegawai($id_log,$nam_peg,$alamat,$stat_peg)
+    {
+         $query = $this->db->query("CALL simpan_pegawai('$id_log','$nam_peg','$alamat','$stat_peg');");
+
+        return $query;
     }
 
     function UpdateData($tabel,$fieldid,$fieldvalue,$data)

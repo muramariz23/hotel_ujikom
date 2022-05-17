@@ -3,20 +3,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Kamar_model extends CI_Model
 {
-    function AddData($tabel, $data)
+    function AddData($no_kam,$tipe_kas,$tipe_kam,$id_fas,$gam_kam)
     {
-        $this->db->insert($tabel,$data);
+        $query = $this->db->query("CALL simpan_kamar('$no_kam','$tipe_kas','$tipe_kam','$id_fas','$gam_kam');");
+
+        return $query;
     }
 
-    function UpdateData($tabel,$fieldid,$fieldvalue,$data)
+    function UpdateData($id_kam,$no_kam,$tipe_kas,$tipe_kam,$id_fas,$gam_kam)
     {
-        $this->db->where($fieldid,$fieldvalue)->update($tabel,$data);
+        $query = $this->db->query("CALL ubah_kamar($id_kam,'$no_kam','$tipe_kas','$tipe_kam',$id_fas,'$gam_kam');");
+
+        return $query;
     }
 
-    function DeleteData($tabel,$fieldid,$fieldvalue)
+    function DeleteData($fieldid)
     {
-        $this->db->where($fieldid,$fieldvalue)->delete($tabel);
+       $query = $this->db->query("CALL hapus_kamar('$fieldid')");
     }
+
+    function GetDatFas()
+    { 
+        $query = $this->db->query("CALL panggil_fasilitas");
+
+        return $query->result();
+    }
+
 
     function GetData($tabel)
     {
@@ -24,31 +36,19 @@ class Kamar_model extends CI_Model
         return $query->result();
     }
 
-    function GetDataWhere($tabel,$id,$nilai)
-    {
-        $this->db->where($id,$nilai);
-        $query= $this->db->get($tabel);
-        return $query;
-    }
-
+    
     function getAll()
     {
-        $this->db->select('*');
-        $this->db->from('kamar');
-        $this->db->join('fasilitas', 'kamar.id_fasilitas=fasilitas.id_fasilitas');
-        $query = $this->db->get();
+         $query = $this->db->query("CALL panggil_kamar()");
+
         return $query->result();
     }
 
-    function GetDataJoinWhere($tabel1, $tabel2, $onjoin, $id, $data)
+    function GetDataJoinWhere($id)
     {
 
-        $this->db->select('*');
-        $this->db->from($tabel1);
-        $this->db->join($tabel2, $onjoin);
-        $this->db->where($id, $data);
-        $query = $this->db->get();
-        return $query;
+        $query = $this->db->query("CALL panggil_kamar_kondisi($id)");
+       return $query->row();
     }
 
 

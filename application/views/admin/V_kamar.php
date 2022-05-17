@@ -193,23 +193,7 @@
         </div>
     </div>
 
-
-
-
-
-<!-- 
-<table class="table">
-  <thead>
-
-  </thead>
-  <tbody>
-
-
-  </tbody>
-</table> -->
-
-
-<script>
+    <script>
         $(document).ready(function() {
          $('#myTable').DataTable({
             "scrollY": "250px",

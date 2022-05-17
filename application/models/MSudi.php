@@ -31,4 +31,24 @@ class MSudi extends CI_Model
         return $query;
     }
 
+    function getAll()
+    {
+        $this->db->select('*');
+        $this->db->from('reservasi');
+        $this->db->join('kamar', 'reservasi.id_kamar=kamar.id_kamar');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    function GetDataJoinWhere($tabel1, $tabel2, $onjoin, $id, $data)
+    {
+
+        $this->db->select('*');
+        $this->db->from($tabel1);
+        $this->db->join($tabel2, $onjoin);
+        $this->db->where($id, $data);
+        $query = $this->db->get();
+        return $query;
+    }
+
 }

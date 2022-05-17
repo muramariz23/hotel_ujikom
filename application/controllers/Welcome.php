@@ -7,7 +7,7 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		
-		$this->load->view('user/V_homepage');
+		$this->load->view('home/V_beranda');
 		
 
 	}

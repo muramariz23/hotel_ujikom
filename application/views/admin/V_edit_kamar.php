@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html>
 <head>
 	<title>Tambah Data</title>
@@ -53,7 +53,7 @@
 <div class="input-group mb-3">
   			<span class="input-group-text" id="inputGroup-sizing-default">Nomor Fasilitas</span>
 		<select class="form-select" name="txt_id_fasilitas" aria-label="Default select example">
-			<option value="<?php echo $detail['id_fasilitas']?>"><?php echo $detail['id_fasilitas']</option>
+			<option value="<?php echo $detail['id_fasilitas']?>"><?php echo $detail['no_fasilitas']; ?></option>
   			<?php foreach ($GetFasilitas as $Get) : ?>
 				<option value="<?php echo $Get->id_fasilitas ?>"><?php echo $Get->no_fasilitas; ?></option>
 			<?php endforeach; ?>
@@ -62,7 +62,7 @@
 
 <div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">Gambar Kamar</span>
-  <input type="file" name="txt_gambar_kamar" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+  <input type="file" name="txt_gambar_kamar" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value="<?php echo $detail['gambar_kamar']; ?>">
 </div>
 	
 	<input class="btn-outline-primary form-control" type="submit" value="Simpan">

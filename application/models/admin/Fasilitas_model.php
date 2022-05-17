@@ -2,31 +2,57 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Fasilitas_model extends CI_Model
 {
-    function AddData($tabel, $data)
+    function AddData($no_fas, $j_fas, $isi_fas)
     {
-        $this->db->insert($tabel,$data);
+        $query = $this->db->query("CALL simpan_fasilitas('','$no_fas','$j_fas','$isi_fas');");
+
+        return $query;
     }
 
-        function UpdateData($tabel,$fieldid,$fieldvalue,$data)
+        function UpdateData($id_fas,$no_fas, $j_fas, $isi_fas)
     {
-        $this->db->where($fieldid,$fieldvalue)->update($tabel,$data);
+        $query = $this->db->query("CALL ubah_fasilitas($id_fas,'$no_fas','$j_fas','$isi_fas');");
+
+        return $query;
     }
 
-        function DeleteData($tabel,$fieldid,$fieldvalue)
+    
+     function GetData()
     {
-        $this->db->where($fieldid,$fieldvalue)->delete($tabel);
-    }
+        $query = $this->db->query("CALL panggil_fasilitas()");
 
-        function GetData($tabel)
-    {
-        $query= $this->db->get($tabel);
         return $query->result();
     }
 
-    function GetDataWhere($tabel,$id,$nilai)
+    function DeleteData($id)
     {
-        $this->db->where($id,$nilai);
-        $query= $this->db->get($tabel);
-        return $query;
+       $query = $this->db->query("CALL hapus_fasilitas('$id')");
     }
+
+    function GetDataWhere($id)
+    {
+       $query = $this->db->query("CALL panggil_fasilitas_kondisi('$id')");
+       return $query->row();
     }
+
+    }
+
+
+    //     function DeleteData($tabel,$fieldid,$fieldvalue)
+    // {
+    //     $this->db->where($fieldid,$fieldvalue)->delete($tabel);
+    // }
+
+    //     function GetData($tabel)
+    // {
+    //     $query= $this->db->get($tabel);
+    //     return $query->result();
+    // }
+
+
+    // function GetDataWhere($id,$nilai)
+    // {
+    //     $this->db->where($id,$nilai);
+    //     $query= $this->db->get($tabel);
+    //     return $query;
+    // }

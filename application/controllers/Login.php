@@ -17,9 +17,11 @@ class Login extends CI_Controller{
 			$data = $auth->row_array();
 			$username = $data['username'];
 			$status = $data['status'];
+			$id_login = $data['id_login'];
 			$sesdata = array(
 				'username'=> $username,
 				'status' => $status,
+				'id_login' => $id_login,
 				'logged_in' => TRUE
 			);
 			$this->session->set_userdata($sesdata);
@@ -28,12 +30,12 @@ class Login extends CI_Controller{
 				redirect('admin/Dashboard');
 				}
 			elseif($status == 'pegawai'){
-				$this->session->set_userdata('akses','pegawai');
-				redirect('admin/pegawai');
+				$this->session->set_userdata('akses','resepsionis');
+				redirect('resepsionis/Reservasi');
 				}
 			elseif ($status == 'pengguna') {
 				$this->session->set_userdata('akses', 'pengguna');
-				redirect('admin/pengguna');
+				redirect('pengguna/Pengguna');
 				}
 			}
 			else

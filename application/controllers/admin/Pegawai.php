@@ -21,11 +21,11 @@ class Pegawai extends CI_Controller {
 
 	function Tambah()
 	{
-         	 $add['username']= $this->input->post('txt_username');
-         	 $add['password']= $this->input->post('txt_password');  
-         	 $add['status']= $this->input->post('txt_status');  
+         	 $uname= $this->input->post('txt_username');
+         	 $pass= $this->input->post('txt_password');  
+         	 $stat= $this->input->post('txt_status');  
          	 
-        	 $this->Pegawai_model->AddData('login',$add);
+        	 $this->Pegawai_model->AddDataUser($uname,$pass,$stat);
         	 redirect(site_url('admin/Pegawai/DetailUser'));
 	}
 
@@ -39,7 +39,7 @@ class Pegawai extends CI_Controller {
 	{
 		if ($this->uri->segment(5) == 'view') {	
 				$id_login = $this->uri->segment(4);
-				$tampil = $this->Pegawai_model->GetDataWhere('login', 'id_login', $id_login)->row();
+				$tampil = $this->Pegawai_model->Lengkapi($id_login);
 				$data['detail']['id_login']= $tampil->id_login;
             	$this->load->view('admin/V_add_pegawai', $data);
 
@@ -49,13 +49,13 @@ class Pegawai extends CI_Controller {
 
 	function AddPegawai()
 	{
-		 	$add['id_login']=$this->input->post('txt_id_login');
-         	 $add['nama_pegawai']= $this->input->post('txt_nama_pegawai');
-         	 $add['alamat']= $this->input->post('txt_alamat');  
-         	 $add['stat_pegawai']= $this->input->post('txt_stat_pegawai');  
+		 	$id_log=$this->input->post('txt_id_login');
+         	 $nam_peg= $this->input->post('txt_nama_pegawai');
+         	 $alamat= $this->input->post('txt_alamat');  
+         	 $stat_peg= $this->input->post('txt_stat_pegawai');  
          	 
 
-        	 $this->Pegawai_model->AddData('pegawai',$add);
+        	 $this->Pegawai_model->AddDataPegawai($id_log,$nam_peg,$alamat,$stat_peg);
         	 redirect(site_url('admin/Pegawai'));
 	}
 
