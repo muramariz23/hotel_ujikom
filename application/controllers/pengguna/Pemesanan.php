@@ -24,6 +24,7 @@ class Pemesanan extends CI_Controller {
 			 $add['id_pegawai']= 4;
 		 	 $add['id_pengguna']=$this->input->post('txt_id_pengguna');
 		 	 $add['id_kamar']=$this->input->post('txt_id_kamar');
+		 	 $add['jml_kmr_dipesan']=$this->input->post('txt_jml_kmr_dipesan');
          	 $add['tgl_check_in']= $this->input->post('txt_tgl_check_in');
          	 $add['tgl_check_out']= $this->input->post('txt_tgl_check_out');  
          	 $add['nama_tamu']= $this->input->post('txt_nama_tamu');
@@ -102,7 +103,7 @@ class Pemesanan extends CI_Controller {
 				$data['detail']['id_pengguna']= $pengguna->id_pengguna;
 				$data['detail']['nama_pengguna']= $pengguna->nama_pengguna;
 				$data['detail']['id_kamar']= $tampil->id_kamar;
-				$data['detail']['no_kamar']= $tampil->no_kamar;
+				$data['detail']['jml_kamar']= $tampil->jml_kamar;
             	$data['detail']['tipe_kasur']= $tampil->tipe_kasur;
             	$data['detail']['tipe_kamar']= $tampil->tipe_kamar;
             	$data['detail']['isi_fasilitas']= $tampil->isi_fasilitas;
@@ -124,7 +125,7 @@ class Pemesanan extends CI_Controller {
 		// $tampiljoin = $tampil = $this->Reservasi_model->GetDataJoinWhere('kamar', 'fasilitas', $onjoin, 'id_kamar', $id_kamar)->row();
 		$data['detail']['id_reservasi']= $tampil->id_reservasi;
 		$data['detail']['nama_pengguna']= $tampil->nama_pengguna;
-		$data['detail']['no_kamar']= $tampil->no_kamar;
+		$data['detail']['jml_kmr_dipesan']= $tampil->jml_kmr_dipesan;
 		$data['detail']['tgl_check_in']= $tampil->tgl_check_in;
 		$data['detail']['tgl_check_out']= $tampil->tgl_check_out;
 		$data['detail']['nama_tamu']= $tampil->nama_tamu;

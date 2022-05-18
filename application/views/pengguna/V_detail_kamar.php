@@ -12,7 +12,7 @@
 		<div class="container card bg-light">
 		<div class="row">
 			<div class="card col-12 col-md-4 card">
-			<h3>No Kamar : <?php echo $detail['no_kamar']; ?></h3>
+			<h3>Jumlah Kamar Tersedia : <?php echo $detail['jml_kamar']; ?></h3>
 
 			<h3>Tipe Kasur : <?php echo $detail['tipe_kasur']; ?></h3>
 
@@ -57,6 +57,10 @@
 			<form action="<?php echo site_url('pengguna/Pemesanan/AddPemesanan'); ?>" method="post">
 				<input type="hidden" name="txt_id_pengguna" value=" <?php echo $detail['id_pengguna']; ?>">
 				<input type="hidden" name="txt_id_kamar" value=" <?php echo $detail['id_kamar']; ?>">
+				<div class="input-group mb-3">
+  					<span class="input-group-text" id="basic-addon1">Jumlah Kamar</span>
+  					<input type="text" name="txt_jml_kmr_dipesan" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
+				</div>
 				<div class="input-group mb-3">
   					<span class="input-group-text" id="basic-addon1">Pilih Tanggak Check In</span>
   					<input type="date" name="txt_tgl_check_in" class="form-control" placeholder="Pilih Tanggal Check In" aria-label="Username" aria-describedby="basic-addon1" required>

@@ -20,7 +20,7 @@
 		<div class="card bg-dark"></div>
 		<br>
 		<h2 class="mx-auto">Nama Pengguna : <?php echo $detail['nama_pengguna']; ?></h2>
-		<h2 class="mx-auto">Nomer Blok Kamar : <?php echo $detail['no_kamar']; ?></h2>
+		<h2 class="mx-auto">Jumlah Kamar Dipesan : <?php echo $detail['jml_kmr_dipesan']; ?></h2>
 		<h2 class="mx-auto">Tanggal Check In : <?php echo $detail['tgl_check_in']; ?></h2>
 		<h2 class="mx-auto">Tanggal Check Out : <?php echo $detail['tgl_check_out']; ?></h2>
 		<h2 class="mx-auto">Nama Tamu : <?php echo $detail['nama_tamu']; ?></h2>
