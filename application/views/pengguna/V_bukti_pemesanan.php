@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>bukti reservasi</title>
-	<?php include 'partisi/head.php'; ?>
+  <title>Cetak Laporan</title>
+    <?php include 'partisi/head.php'; ?>
+
+    <style type="text/css">
+        @media print {
+  .noPrint{
+    display: none;
+  }
+  
+}
+    </style>
 </head>
-<body>
+
 <div class="card container">
 	
 		<h1 class="mx-auto">BUKTI RESERVASI KAMAR</h1>
 		<div class="card bg-dark"></div>
 		<br>
 		<h2 class="mx-auto">Nama Pengguna : <?php echo $detail['nama_pengguna']; ?></h2>
-		<h2 class="mx-auto">Nomer Blok : <?php echo $detail['no_kamar']; ?></h2>
+		<h2 class="mx-auto">Nomer Blok Kamar : <?php echo $detail['no_kamar']; ?></h2>
 		<h2 class="mx-auto">Tanggal Check In : <?php echo $detail['tgl_check_in']; ?></h2>
 		<h2 class="mx-auto">Tanggal Check Out : <?php echo $detail['tgl_check_out']; ?></h2>
 		<h2 class="mx-auto">Nama Tamu : <?php echo $detail['nama_tamu']; ?></h2>
@@ -19,12 +28,26 @@
 		<div class="card"></div>
 		<p>Silahkan screenshot atau unduh Bukti Reservasi untuk diperlihatkan kepada resepsionis saat melakukan check in hotel</p>
 		<br>
-		<button class="btn btn-small btn-primary">Unduh Bukti Reservasi</button>
+		<button onclick="window.print()">Print this page</button>
 </div>
 
+    <script>
+        $('#myTable').DataTable( {
+    buttons: [
+        {
+            extend: 'pdf',
+            text: 'Save current page',
+            exportOptions: {
+                modifier: {
+                    page: 'current'
+                }
+            }
+        }
+    ]
+} );
+    </script>
+    
+<?php include 'partisi/footer.php'; ?>
 
-
-
-	<?php include 'partisi/footer.php'; ?>
 </body>
 </html>

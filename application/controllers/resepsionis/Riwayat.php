@@ -5,7 +5,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Reservasi extends CI_Controller {
+class Riwayat extends CI_Controller {
 
 	function __construct(){
 	parent::__construct();
@@ -13,52 +13,25 @@ class Reservasi extends CI_Controller {
             redirect(site_url('Login'));
         }
     
-	$this->load->model('resepsionis/Reservasi_model');
+	$this->load->model('resepsionis/Riwayat_model');
 	}
 
 
 	function index()
 	{			
 		
-		$data['GetReservasi']= $this->Reservasi_model->GetAll('reservasi');
+		$data['GetRiwayat']= $this->Riwayat_model->GetAll('riwayat_reservasi');
 		$date = $this->input->post('txt_filter_tanggal');
 		if ($date) {
-			$data['GetReservasi']= $this->Reservasi_model->GetFilterWhere($date);
+			$data['GetRiwayat']= $this->Riwayat_model->GetFilterWhere($date);
 		}
-		$this->load->view('resepsionis/V_reservasi', $data);
+		$this->load->view('resepsionis/V_riwayat_reservasi', $data);
 		}
-
-		function CheckIn()
-		{
-			$id_reservasi=$this->uri->segment(4);
-			$id_login = $this->session->userdata('id_login');
-			$pegawai = $this->Reservasi_model->AmbilDataPegawai($id_login)->row();
-			$Checkin = $this->Reservasi_model->CekIn($id_reservasi,$pegawai->id_pegawai);
-			redirect(site_url('resepsionis/Reservasi'));
-		}
-
-		function CheckOut()
-		{
-		 	 $id_reservasi=$this->uri->segment(4);
-        	 $this->Reservasi_model->DeleteData('reservasi','id_reservasi',$id_reservasi);
-
-        	 redirect(site_url('resepsionis/Reservasi'));
-		}
-
-		function batalkan()
-			{
-				$id_reservasi=$this->uri->segment(4);
-				$id_login = $this->session->userdata('id_login');
-				$pegawai = $this->Reservasi_model->AmbilDataPegawai($id_login)->row();
-				$Checkin = $this->Reservasi_model->Batal($id_reservasi,$pegawai->id_pegawai);
-				$this->Reservasi_model->DeleteData('reservasi','id_reservasi',$id_reservasi);
-				redirect(site_url('resepsionis/Reservasi'));
-			}
+		
 
 			function CetakLaporan() {
-                        
-            $data['GetReservasi'] = $this->Reservasi_model->getAll();
-            $this->load->view('resepsionis/V_cetak_laporan', $data);
+            $data['GetRiwayat'] = $this->Riwayat_model->getAll();
+            $this->load->view('resepsionis/V_cetak_laporan_Riwayat', $data);
 
     		}
 

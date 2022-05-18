@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>fasilitas</title>
+	<title>Kamar</title>
     <?php include 'partisi/head.php'; ?>
 </head>
 <body>

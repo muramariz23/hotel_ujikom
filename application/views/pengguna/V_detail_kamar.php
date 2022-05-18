@@ -59,19 +59,19 @@
 				<input type="hidden" name="txt_id_kamar" value=" <?php echo $detail['id_kamar']; ?>">
 				<div class="input-group mb-3">
   					<span class="input-group-text" id="basic-addon1">Pilih Tanggak Check In</span>
-  					<input type="date" name="txt_tgl_check_in" class="form-control" placeholder="Pilih Tanggal Check In" aria-label="Username" aria-describedby="basic-addon1">
+  					<input type="date" name="txt_tgl_check_in" class="form-control" placeholder="Pilih Tanggal Check In" aria-label="Username" aria-describedby="basic-addon1" required>
 				</div>
 				<div class="input-group mb-3">
   					<span class="input-group-text" id="basic-addon1">Pilih Tanggal Check Out</span>
-  					<input type="date" name="txt_tgl_check_out" class="form-control" placeholder="Pilih Tanggal Check Out" aria-label="Username" aria-describedby="basic-addon1">
+  					<input type="date" name="txt_tgl_check_out" class="form-control" placeholder="Pilih Tanggal Check Out" aria-label="Username" aria-describedby="basic-addon1" required>
 				</div>
 				<div class="input-group mb-3">
   					<span class="input-group-text" id="basic-addon1">Nama Tamu</span>
-  					<input type="text" name="txt_nama_tamu" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+  					<input type="text" name="txt_nama_tamu" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
 				</div>
 				<div class="input-group mb-3">
   					<span class="input-group-text" id="basic-addon1">Keterangan Tambahan</span>
-  					<input type="text" name="txt_keterangan" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+  					<input type="text" name="txt_keterangan" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
 				</div>
 				<input class="btn btn-outline-primary" type="submit" value="Pesan Sekarang">
 			</form>

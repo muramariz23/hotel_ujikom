@@ -27,15 +27,15 @@
 	<input type="text" name="txt_id_login" value="<?php echo $detail['id_login'] ?>">
 	<div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">Nama Pengguna</span>
-  <input type="text" name="txt_nama_pengguna" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+  <input type="text" name="txt_nama_pengguna" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
 </div>
 <div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">Email</span>
-  <input type="text" name="txt_email" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
+  <input type="text" name="txt_email" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" required>
 </div>
 <div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">Nomor Telepon</span>
-  <input type="text" name="txt_no_telepon" class="form-control" placeholder="08xxxxxxxxxxx" aria-label="Username" aria-describedby="basic-addon1">
+  <input type="text" name="txt_no_telepon" class="form-control" placeholder="08xxxxxxxxxxx" aria-label="Username" aria-describedby="basic-addon1" required>
 </div>
 	
 	<input class="btn-outline-primary form-control" type="submit" value="Simpan">

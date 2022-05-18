@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Reservasi</title>
+	<title>Riwayat Reservasi</title>
     <?php include 'partisi/head.php'; ?>
 </head>
 <body>
     <?php include 'partisi/navbar.php'; ?>
-<h1>DATA RESERVASI KAMAR</h1>
+<h1>DATA RIWAYAT RESERVASI KAMAR</h1>
 
 
 <div class="card-header">
@@ -17,30 +17,33 @@
             </div>
             <input type="submit" class="btn btn-outline-primary" value="Cari">
       </form>
-      <a href="<?php echo site_url('resepsionis/Reservasi/CetakLaporan') ?>"><button class="btn btn-primary">Cetak Laporan Reservasi</button></a>
+
+      <a href="<?php echo site_url('resepsionis/Riwayat/CetakLaporan') ?>"><button class="btn btn-primary">Cetak Laporan Reservasi</button></a>
         <div class="table-responsive"> 
             <table id="myTable" class="table  table-striped table-bordered" style="width:100%;">
                 <thead class="bg-secondary text-white">
     <tr>
       <th>No</th>
       <th>ID Reservasi</th>
+      <th>Nama Pegawai</th>
       <th>Nama Pengguna</th>
       <th>Nomor Blok Kamar</th>
       <th>Tanggal Check In</th>
       <th>Tanggal Check Out</th>
       <th>Nama Tamu</th>
       <th>Keterangan</th>
-      <th>Status</th>
-      <th>Tindakan</th>
     </tr>
   </thead>
   <tbody>
        <?php $no = 1; ?>
-        <?php foreach ($GetReservasi as $Get): ?>
+        <?php foreach ($GetRiwayat as $Get): ?>
         <tr>
             <td><?php echo $no++; ?></td>
             <td width="50">
-                <?php echo $Get->id_reservasi ?>
+                <?php echo $Get->id_riwayat ?>
+            </td>
+            <td>
+                <?php echo $Get->nama_pegawai ?>
             </td>
             <td>
                 <?php echo $Get->nama_pengguna ?>
@@ -60,16 +63,7 @@
             <td>
                 <?php echo $Get->keterangan ?>
             </td>
-            <td>
-                <?php echo $Get->stat_pemesanan ?>
-            </td>
-            <td width="300">
-                <a href="<?php echo site_url('resepsionis/Reservasi/CheckIn/'.$Get->id_reservasi) ?>"
-                 class="btn btn-small btn-success"> Check In</a>
-                 <a href="<?php echo site_url('resepsionis/Reservasi/CheckOut/'.$Get->id_reservasi) ?>"
-                 class="btn btn-small btn-warning"> Check Out</a>
-                <a href="<?php echo site_url('resepsionis/Reservasi/Batalkan/'.$Get->id_reservasi) ?>" class="btn btn-small btn-danger"> Batalkan</a>
-            </td>
+            
         </tr>
         <?php endforeach; ?>
               </tbody>

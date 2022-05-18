@@ -19,11 +19,11 @@
 	<input type="hidden" name="txt_id_login" value="<?php echo $detail['id_login'] ?>">
 	<div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">Nama Pegawai</span>
-  <input type="text" name="txt_nama_pegawai" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value="<?php echo $detail['nama_pegawai'] ?>">
+  <input type="text" name="txt_nama_pegawai" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required> value="<?php echo $detail['nama_pegawai'] ?>">
 </div>
 <div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">Alamat</span>
-  <input type="text" name="txt_alamat" class="form-control" placeholder="Alamat" aria-label="Username" aria-describedby="basic-addon1" value="<?php echo $detail['alamat'] ?>">
+  <input type="text" name="txt_alamat" class="form-control" placeholder="Alamat" aria-label="Username" aria-describedby="basic-addon1" required> value="<?php echo $detail['alamat'] ?>">
 </div>
 
 
@@ -31,8 +31,8 @@
   <label class="input-group-text" for="inputGroupSelect01">Status Pegawai</label>
   <select class="form-select" name="txt_stat_pegawai" id="inputGroupSelect01">
     <option selected value="<?php echo $detail['stat_pegawai'] ?>"><?php echo $detail['stat_pegawai'] ?></option>
-    <option value="housekeeper">housekeeper</option>
-    <option value="resepsionis">resepsionis</option>
+    <option value="housekeeper" required>>housekeeper</option>
+    <option value="resepsionis" required>>resepsionis</option>
   </select>
 </div>	
 	

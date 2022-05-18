@@ -1,23 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Reservasi_model extends CI_Model
+class Riwayat_model extends CI_Model
 {
-    function AddData($tabel, $data)
-    {
-        $this->db->insert($tabel,$data);
-    }
-
-    function UpdateData($tabel,$fieldid,$fieldvalue,$data)
-    {
-        $this->db->where($fieldid,$fieldvalue)->update($tabel,$data);
-    }
-
-    function DeleteData($tabel,$fieldid,$fieldvalue)
-    {
-        $this->db->where($fieldid,$fieldvalue)->delete($tabel);
-    }
-
     function GetData($tabel)
     {
         $query= $this->db->get($tabel);
@@ -34,9 +19,10 @@ class Reservasi_model extends CI_Model
     function getAll()
     {
         $this->db->select('*');
-        $this->db->from('reservasi');
-        $this->db->join('kamar', 'reservasi.id_kamar=kamar.id_kamar');
-        $this->db->join('pengguna', 'reservasi.id_pengguna=pengguna.id_pengguna');
+        $this->db->from('riwayat_reservasi');
+        $this->db->join('kamar', 'riwayat_reservasi.id_kamar=kamar.id_kamar');
+        $this->db->join('pengguna', 'riwayat_reservasi.id_pengguna=pengguna.id_pengguna');
+        $this->db->join('pegawai', 'riwayat_reservasi.id_pegawai=pegawai.id_pegawai');
         $query = $this->db->get();
         return $query->result();
     }
@@ -55,12 +41,6 @@ class Reservasi_model extends CI_Model
     function AmbilDataPegawai($id_login)
     {
         $query = $this->db->query("SELECT * FROM pegawai WHERE id_login = '$id_login'");
-        return $query;
-    }
-
-    function AmbilDataResepsionis()
-    {
-        $query = $this->db->query("SELECT * FROM pengguna WHERE id_pengguna = '15'");
         return $query;
     }
 
@@ -84,7 +64,7 @@ class Reservasi_model extends CI_Model
 
     function GetFilterWhere($tglCekIn)
     {
-        $query = $this->db->query("SELECT * FROM reservasi JOIN pegawai ON reservasi.id_pegawai=pegawai.id_pegawai JOIN pengguna ON reservasi.id_pengguna=pengguna.id_pengguna JOIN kamar ON reservasi.id_kamar=kamar.id_kamar WHERE tgl_check_in LIKE '%$tglCekIn%'");
+        $query = $this->db->query("SELECT * FROM riwayat_reservasi JOIN pegawai ON riwayat_reservasi.id_pegawai=pegawai.id_pegawai JOIN pengguna ON riwayat_reservasi.id_pengguna=pengguna.id_pengguna JOIN kamar ON riwayat_reservasi.id_kamar=kamar.id_kamar WHERE tgl_check_in LIKE '%$tglCekIn%'");
         return $query->result();
     }
 } ?>

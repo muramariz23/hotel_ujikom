@@ -14,13 +14,13 @@
 <form action="<?php echo site_url('pengguna/Pengguna/Tambah'); ?>" method="post">
 	<div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">Username</span>
-  <input type="text" name="txt_username" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+  <input type="text" name="txt_username" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
 </div>
 
 
 <div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">Password</span>
-  <input type="Password" name="txt_password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">
+  <input type="Password" name="txt_password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" required>
 </div>
 
 <input type="hidden" name="txt_status" value="pengguna">

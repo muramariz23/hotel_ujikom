@@ -15,7 +15,7 @@
           <a class="nav-link active" aria-current="page" href="<?php echo site_url('pengguna/Pemesanan') ?>"><button class="btn btn-outline-light">Reservasi</button></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="<?php echo site_url('pengguna/R_pemesanan') ?>"><button class="btn btn-outline-light">Riwayat</button></a>
+          <a class="nav-link active" aria-current="page" href="<?php echo site_url('pengguna/Pemesanan/dataPesanan/'.$detail['id_pengguna']) ?>"><button class="btn btn-outline-light">Riwayat</button></a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="<?php echo site_url('pengguna/Pengguna/Profile/'.$detail['id_pengguna']) ?>"><button class="btn btn-outline-light">Profile</button></a>

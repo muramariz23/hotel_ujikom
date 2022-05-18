@@ -84,4 +84,16 @@ class Reservasi_model extends CI_Model
         $query = $this->db->query("SELECT * FROM reservasi JOIN pengguna ON reservasi.id_pengguna=pengguna.id_pengguna JOIN kamar ON reservasi.id_kamar=kamar.id_kamar WHERE reservasi.id_pengguna='$id_pengguna' ORDER BY reservasi.id_reservasi DESC LIMIT 1");
         return $query;
     }
+
+     function GetDetailPesanan($id_reservasi)
+    {
+        $query = $this->db->query("SELECT * FROM reservasi JOIN pengguna ON reservasi.id_pengguna=pengguna.id_pengguna JOIN kamar ON reservasi.id_kamar=kamar.id_kamar WHERE reservasi.id_reservasi='$id_reservasi'");
+        return $query;
+    }
+
+     function GetRiwayat($id_pengguna)
+    {
+        $query = $this->db->query("SELECT * FROM reservasi JOIN pengguna ON reservasi.id_pengguna=pengguna.id_pengguna JOIN kamar ON reservasi.id_kamar=kamar.id_kamar WHERE reservasi.id_pengguna='$id_pengguna'");
+        return $query->result();
+    }
 } ?>

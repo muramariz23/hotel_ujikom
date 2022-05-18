@@ -132,4 +132,28 @@ class Pemesanan extends CI_Controller {
 		$this->load->view('pengguna/V_bukti_pemesanan', $data);
 	}
 
+	function DataBuktiPesanan()
+	{
+		$id_pengguna = $this->uri->segment(4);
+		$tampil = $this->Reservasi_model->GetDetailPesanan($id_pengguna)->row();
+
+		// $tampiljoin = $tampil = $this->Reservasi_model->GetDataJoinWhere('kamar', 'fasilitas', $onjoin, 'id_kamar', $id_kamar)->row();
+		$data['detail']['id_reservasi']= $tampil->id_reservasi;
+		$data['detail']['nama_pengguna']= $tampil->nama_pengguna;
+		$data['detail']['no_kamar']= $tampil->no_kamar;
+		$data['detail']['tgl_check_in']= $tampil->tgl_check_in;
+		$data['detail']['tgl_check_out']= $tampil->tgl_check_out;
+		$data['detail']['nama_tamu']= $tampil->nama_tamu;
+		$data['detail']['keterangan']= $tampil->keterangan;
+		$this->load->view('pengguna/V_bukti_pemesanan', $data);
+	}
+
+	function dataPesanan()
+		{
+			$id_riwayat=$this->uri->segment(4);
+			$data['GetRiwayat']= $this->Reservasi_model->GetRiwayat($id_riwayat);
+		
+		$this->load->view('pengguna/V_riwayat_reservasi', $data);
+		}
+
 }

@@ -17,7 +17,7 @@
 <body>
 <h1>DATA RESERVASI KAMAR</h1>
 
-
+<button onclick="window.print()">Print this page</button>
 <div class="card-header">
             <table class="table table-striped table-bordered" style="width:100%;">
                 <thead class="bg-secondary text-white">
@@ -35,11 +35,14 @@
   </thead>
   <tbody>
        <?php $no = 1; ?>
-        <?php foreach ($GetReservasi as $Get): ?>
+        <?php foreach ($GetRiwayat as $Get): ?>
         <tr>
             <td><?php echo $no++; ?></td>
             <td width="50">
-                <?php echo $Get->id_reservasi ?>
+                <?php echo $Get->id_riwayat ?>
+            </td>
+            <td>
+                <?php echo $Get->nama_pegawai ?>
             </td>
             <td>
                 <?php echo $Get->nama_pengguna ?>
@@ -47,7 +50,7 @@
             <td>
                 <?php echo $Get->no_kamar ?>
             </td>
-            <td>
+             <td>
                 <?php echo $Get->tgl_check_in ?>
             </td>
             <td>
@@ -58,9 +61,6 @@
             </td>
             <td>
                 <?php echo $Get->keterangan ?>
-            </td>
-            <td>
-                <?php echo $Get->stat_pemesanan ?>
             </td>
         </tr>
         <?php endforeach; ?>
@@ -85,10 +85,7 @@
     ]
 } );
     </script>
-
-    <script type="text/javascript">
-        window.print();
-    </script>
+    
 <?php include 'partisi/footer.php'; ?>
 </body>
 </html>

@@ -8,15 +8,15 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="<?php echo site_url('resepsionis/Reservasi') ?>"><button class="btn btn-outline-light">Tambah Reservasi</button></a>
-        </li>
+
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="<?php echo site_url('resepsionis/Reservasi') ?>"><button class="btn btn-outline-light">Reservasi</button></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="<?php echo site_url('resepsionis/') ?>"><button class="btn btn-outline-light">Riwayat Reservasi</button></a>
+          <a class="nav-link active" aria-current="page" href="<?php echo site_url('resepsionis/Reservasi/AddPemesananResepsionis') ?>"><button class="btn btn-outline-light">Tambah Reservasi</button></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="<?php echo site_url('resepsionis/Riwayat') ?>"><button class="btn btn-outline-light">Riwayat Reservasi</button></a>
         </li>
       </ul>
       <a href="<?php echo site_url('Login/logout') ?>"><button class="btn btn-outline-light">LOG OUT</button></a>
