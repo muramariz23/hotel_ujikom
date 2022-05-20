@@ -12,6 +12,29 @@
 	<h1>PESAN KAMAR HOTEL</h1>
   <p>Silahkan Pilih Kamar Sesuai Keinginan Anda</p>
     <a href="<?php echo site_url('pengguna/Pengguna') ?>"><button class="btn btn-warning">KEMBALI</button></a>
+    <form action="" method="post">
+      <h3>Pilih Berdasarkan Tipe Kamar atau Tipe Kasur</h3>
+          <div class="input-group mb-3">
+  <label class="input-group-text" for="inputGroupSelect01">Tipe Kasur</label>
+  <select class="form-select" name="txt_tipe_kasur" id="inputGroupSelect01">
+    <option selected>Pilihan</option>
+    <option value="single" required>single</option>
+    <option value="double" required>double</option>
+    <option value="twin" required>twin</option>
+  </select>
+</div>
+
+<div class="input-group mb-3">
+  <label class="input-group-text" for="inputGroupSelect01">Tipe Kamar</label>
+  <select class="form-select" name="txt_tipe_kamar" id="inputGroupSelect01">
+    <option selected>Pilihan</option>
+    <option value="standar" required>standar</option>
+    <option value="superior" required>superior</option>
+    <option value="deluxe" required>deluxe</option>
+  </select>
+</div>
+            <input type="submit" class="btn btn-outline-primary" value="Cari Kamar">
+      </form>
   <div class="row my-auto">
     <?php foreach ($GetKamar as $Get) :?>
       <div class=" mx-auto mb-2 p-2 col-md-3 col-sm-6 card" style="width: 18rem; height: 25rem;">

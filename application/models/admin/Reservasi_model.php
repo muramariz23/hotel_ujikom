@@ -38,6 +38,12 @@ class Reservasi_model extends CI_Model
         return $query;
     }
 
+    function JumlahPemesan($id_pengguna)
+    {
+        
+        $query = $this->db->query("SELECT COUNT(ProductID) AS NumberOfProducts FROM Products;'");
+        return $query->result();
+    }
     function GetFilterWhere($tglCekIn)
     {
         $query = $this->db->query("SELECT * FROM reservasi JOIN pegawai ON reservasi.id_pegawai=pegawai.id_pegawai JOIN pengguna ON reservasi.id_pengguna=pengguna.id_pengguna JOIN kamar ON reservasi.id_kamar=kamar.id_kamar WHERE tgl_check_in LIKE '%$tglCekIn%'");

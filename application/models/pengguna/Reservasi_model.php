@@ -96,4 +96,10 @@ class Reservasi_model extends CI_Model
         $query = $this->db->query("SELECT * FROM reservasi JOIN pengguna ON reservasi.id_pengguna=pengguna.id_pengguna JOIN kamar ON reservasi.id_kamar=kamar.id_kamar WHERE reservasi.id_pengguna='$id_pengguna'");
         return $query->result();
     }
+
+    function GetFilterWhere($tipe_kamar, $tipe_kasur)
+    {
+        $query = $this->db->query("SELECT * FROM kamar JOIN fasilitas ON kamar.id_fasilitas=fasilitas.id_fasilitas WHERE tipe_kasur LIKE '%$tipe_kasur%' OR tipe_kamar LIKE '%$tipe_kamar%'");
+        return $query->result();
+    }
 } ?>

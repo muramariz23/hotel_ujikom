@@ -1,4 +1,4 @@
-<h1>anda berhasil</h1>
+
 
 
 <!DOCTYPE html>
@@ -14,11 +14,8 @@
 <div class="card wadah bg-light mt-3">
 
 	<?php foreach ($GetPengguna as $Get) :?>
-	<h2><?php echo $Get->id_login; ?></h2>
-	<?php endforeach; ?>
-
-	<a href="<?php echo site_url('pengguna/Pengguna/LengkapiData/'.$Get->id_login).'/view' ?>"><button>LENGKAPI DATA</button></a>
-	<?php if ($this->session->flashdata('success')) : ?>
+	
+    <?php if ($this->session->flashdata('success')) : ?>
                             <div class="alert alert-success" role="alert">
                                 <?php echo $this->session->flashdata('success'); ?>
                             </div>
@@ -33,6 +30,8 @@
                                 <?php echo $this->session->flashdata('warning'); ?>
                             </div>
                 <?php endif; ?>
+	<a href="<?php echo site_url('pengguna/Pengguna/LengkapiData/'.$Get->id_login).'/view' ?>"><button>LENGKAPI DATA</button></a>
+	<?php endforeach; ?>
 
 
 </div>

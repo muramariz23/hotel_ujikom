@@ -13,7 +13,12 @@ class Transaksi extends CI_Controller {
 
 	function index()
 	{
+
 		$data['GetTransaksi']= $this->Transaksi_model->GetAll();
+		$date = $this->input->post('txt_filter_tanggal');
+		if ($date) {
+			$data['GetTransaksi']= $this->Transaksi_model->GetFilterWhere($date);
+		}
 		$this->load->view('resepsionis/V_transaksi', $data);
 		}
 
@@ -25,7 +30,7 @@ class Transaksi extends CI_Controller {
 			 $harga = $this->input->post('txt_harga');
 			 if ($bayar > $harga) {
 			 	$hasil = $bayar - $harga;
-			 	$keterangan = 'Kembalian Rp.' . $hasil;
+			 	$keterangan_transaksi = 'Kembalian Rp.' . $hasil;
 			 	
 			 }elseif ($bayar < $harga) {
 			 	$hasil = $harga - $bayar;
@@ -34,14 +39,16 @@ class Transaksi extends CI_Controller {
         	 redirect(site_url('resepsionis/Transaksi/CheckIn/' . $id_reservasi));
 
 			 }else{
-			 	$keterangan = 'Pembayaran Pas';
+			 	$keterangan_transaksi = 'Pembayaran Pas';
 			 }
 			 $add['id_reservasi']= $id_reservasi;
 		 	 $add['id_pengguna']=$this->input->post('txt_id_pengguna');
 		 	 $add['id_pegawai']=$this->input->post('txt_id_pegawai');
          	 $add['jml_bayar']= $this->input->post('txt_jml_bayar');
-         	 $add['keterangan']= $keterangan;
-         	         	
+         	 $add['status_pembayaran']= 'sudah dibayar';
+         	 $add['keterangan_transaksi']= $keterangan_transaksi;
+         	 $update['stat_pemesanan']= 'check in';
+         	 $this->Transaksi_model->UpdateData('reservasi','id_reservasi',$id_reservasi,$update);
         	 $this->Transaksi_model->AddData('transaksi',$add);
         	 redirect(site_url('resepsionis/Transaksi'));
 	}
@@ -50,6 +57,9 @@ class Transaksi extends CI_Controller {
 		{
 			$id_reservasi=$this->uri->segment(4);
 			$id_login = $this->session->userdata('id_login');
+			// if ($this->Transaksi_model->cekBayaran($id_reservasi)->id_transaksi > 0) {
+   //      	 redirect(site_url('resepsionis/Reservasi'));
+			// }
 			$pegawai = $this->Transaksi_model->AmbilDataPegawai($id_login)->row();
 			$tampil = $this->Transaksi_model->GetDataReservasi($id_reservasi)->row();
 			$data['detail']['id_reservasi']= $tampil->id_reservasi;
@@ -66,6 +76,10 @@ class Transaksi extends CI_Controller {
 		function CetakLaporan() {
                         
             $data['GetTransaksi'] = $this->Transaksi_model->getAll();
+            $date = $this->input->post('txt_filter_tanggal');
+		if ($date) {
+			$data['GetTransaksi']= $this->Transaksi_model->GetFilterWhere($date);
+		}
             $this->load->view('resepsionis/V_cetak_laporan_transaksi', $data);
 
     		}

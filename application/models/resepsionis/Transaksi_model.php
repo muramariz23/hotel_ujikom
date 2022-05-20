@@ -83,5 +83,16 @@ class Transaksi_model extends CI_Model
         return $query;
     }
 
+    function cekBayaran($id_reservasi)
+    {
+        $query = $this->db->query("SELECT * FROM transaksi WHERE id_reservasi = '$id_reservasi'");
+        return $query->row();
+    }
+
+    function GetFilterWhere($tglCekIn)
+    {
+        $query = $this->db->query("SELECT * FROM transaksi JOIN pegawai ON transaksi.id_pegawai=pegawai.id_pegawai JOIN pengguna ON transaksi.id_pengguna=pengguna.id_pengguna JOIN reservasi ON transaksi.id_reservasi=reservasi.id_reservasi WHERE reservasi.tgl_check_in LIKE '%$tglCekIn%'");
+        return $query->result();
+    }
 
 }

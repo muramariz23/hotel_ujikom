@@ -24,10 +24,14 @@
 
 <form action="<?php echo site_url('pengguna/Pengguna/Registrasi'); ?>" method="post" enctype="multipart/form-data">
 
-	<input type="text" name="txt_id_login" value="<?php echo $detail['id_login'] ?>">
+	<input type="hidden" name="txt_id_login" value="<?php echo $detail['id_login'] ?>">
 	<div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">Nama Pengguna</span>
   <input type="text" name="txt_nama_pengguna" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
+</div>
+	<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">NIK</span>
+  <input type="text" name="txt_nik" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
 </div>
 <div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">Email</span>

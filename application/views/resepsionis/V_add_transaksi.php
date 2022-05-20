@@ -36,7 +36,7 @@
   <h3>Nama Pengguna : <?php echo $detail['nama_pengguna']; ?></h3>
   <h3>Nama tamu : <?php echo $detail['nama_tamu']; ?></h3>
   <h3>Jumlah Kamar Dipesan : <?php echo $detail['jml_kmr_dipesan']; ?></h3>
-  <h3>Total Harga : <?php echo $detail['harga']; ?></h3>
+  <h3>Total Harga : Rp. <?php echo $detail['harga']; ?></h3>
 	<div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">Jumlah Pembayaran</span>
   <input type="number" name="txt_jml_bayar" class="form-control" placeholder="Jumlah Pembayaran" aria-label="Username" aria-describedby="basic-addon1"required>

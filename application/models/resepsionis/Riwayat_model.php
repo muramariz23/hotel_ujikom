@@ -16,11 +16,10 @@ class Riwayat_model extends CI_Model
         return $query;
     }
 
-    function getAll()
+   function getAll()
     {
         $this->db->select('*');
         $this->db->from('riwayat_reservasi');
-        $this->db->join('kamar', 'riwayat_reservasi.id_kamar=kamar.id_kamar');
         $this->db->join('pengguna', 'riwayat_reservasi.id_pengguna=pengguna.id_pengguna');
         $this->db->join('pegawai', 'riwayat_reservasi.id_pegawai=pegawai.id_pegawai');
         $query = $this->db->get();

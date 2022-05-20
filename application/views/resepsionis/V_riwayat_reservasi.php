@@ -6,7 +6,7 @@
 </head>
 <body>
     <?php include 'partisi/navbar.php'; ?>
-<h1>DATA RIWAYAT RESERVASI KAMAR</h1>
+<h1 class="text-center">DATA RIWAYAT RESERVASI KAMAR</h1>
 
 
 <div class="card-header">
@@ -24,7 +24,7 @@
                 <thead class="bg-secondary text-white">
     <tr>
       <th>No</th>
-      <th>ID Reservasi</th>
+      <th>ID Riyawat</th>
       <th>Nama Pegawai</th>
       <th>Nama Pengguna</th>
       <th>Jumlah Kamar Dipesan</th>
@@ -36,7 +36,8 @@
   </thead>
   <tbody>
        <?php $no = 1; ?>
-        <?php foreach ($GetRiwayat as $Get): ?>
+        <?php foreach ($GetReservasi as $Get): ?>
+            
         <tr>
             <td><?php echo $no++; ?></td>
             <td width="50">

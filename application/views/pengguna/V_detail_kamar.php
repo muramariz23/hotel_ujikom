@@ -65,11 +65,11 @@
 				</div>
 				<div class="input-group mb-3">
   					<span class="input-group-text" id="basic-addon1">Pilih Tanggak Check In</span>
-  					<input type="date" name="txt_tgl_check_in" min="2022-05-19" class="form-control" placeholder="Pilih Tanggal Check In" aria-label="Username" aria-describedby="basic-addon1" required>
+  					<input type="date" id="cek" name="txt_tgl_check_in" min="<?php echo date("Y-m-d");?>" class="form-control" placeholder="Pilih Tanggal Check In" aria-label="Username" aria-describedby="basic-addon1" required>
 				</div>
 				<div class="input-group mb-3">
   					<span class="input-group-text" id="basic-addon1">Pilih Tanggal Check Out</span>
-  					<input type="date" name="txt_tgl_check_out" min="2022-05-19" class="form-control" placeholder="Pilih Tanggal Check Out" aria-label="Username" aria-describedby="basic-addon1" required>
+  					<input type="date" name="txt_tgl_check_out" min="<?php echo date("Y-m-d");?>" class="form-control" placeholder="Pilih Tanggal Check Out" aria-label="Username" aria-describedby="basic-addon1" required>
 				</div>
 				<div class="input-group mb-3">
   					<span class="input-group-text" id="basic-addon1">Nama Tamu</span>
@@ -86,6 +86,9 @@
 		</div>
 	</div>
 
+	<script type="text/javascript">
+		
+	</script>
 <?php include 'partisi/footer.php'; ?>
 </body>
 </html>

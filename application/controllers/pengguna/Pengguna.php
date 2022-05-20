@@ -5,14 +5,15 @@ class Pengguna extends CI_Controller {
 
 	function __construct(){
 	parent::__construct();
-	if ($this->session->userdata('status') != 'pengguna') {
-            redirect(site_url('Login'));
-        }
+	
 	$this->load->model('pengguna/Pengguna_model');
 	}
 
 	function index()
 	{
+		if ($this->session->userdata('status') != 'pengguna') {
+            redirect(site_url('Login'));
+        }
 		$id_login = $this->session->userdata('id_login');
 		$cek = $this->Pengguna_model->CekData($id_login);
 
@@ -45,6 +46,7 @@ class Pengguna extends CI_Controller {
 		$tampil= $this->Pengguna_model->GetDataWhere('pengguna','id_pengguna',$id_pengguna)->row();
 		$data['detail']['id_pengguna']= $tampil->id_pengguna;
 		$data['detail']['nama_pengguna']= $tampil->nama_pengguna;
+		$data['detail']['nik']= $tampil->nik;
         $data['detail']['email']= $tampil->email;
         $data['detail']['no_telepon']= $tampil->no_telepon;
 		$this->load->view('pengguna/V_pengguna', $data);
@@ -91,6 +93,7 @@ class Pengguna extends CI_Controller {
 	{
 		 	$add['id_login']=$this->input->post('txt_id_login');
          	 $add['nama_pengguna']= $this->input->post('txt_nama_pengguna');
+         	 $add['nik']= $this->input->post('txt_nik');
          	 $add['email']= $this->input->post('txt_email');  
          	 $add['no_telepon']= $this->input->post('txt_no_telepon');  
          	 

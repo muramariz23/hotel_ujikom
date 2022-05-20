@@ -15,6 +15,12 @@ class Pemesanan extends CI_Controller {
 	{
 
 		$data['GetKamar'] = $this->Reservasi_model->GetAllKamar();
+
+		$tipe_kamar = $this->input->post('txt_tipe_kamar');
+		$tipe_kasur = $this->input->post('txt_tipe_kasur');
+		if ($tipe_kamar && $tipe_kasur) {
+			$data['GetKamar']= $this->Reservasi_model->GetFilterWhere($tipe_kamar,$tipe_kamar);
+		}
 		$this->load->view('pengguna/V_Cari_kamar',$data);
 		}
 
@@ -37,10 +43,17 @@ class Pemesanan extends CI_Controller {
 			$int_check_out = (int) $date_Check_out;
 
 			$hari = $int_check_out - $int_check_in;
-			$harga_kamar = $kamar_dipesan * $kamar->harga_kamar;
+			$harga_kamar = $kamar->harga_kamar * $kamar_dipesan;
 			$harga_hari = $kamar->harga_kamar * $hari;
-
-			$harga_total = $harga_kamar + $harga_hari;
+			if ($hari == 1) {
+				$harga_total = $kamar_dipesan * $kamar->harga_kamar;
+			}
+			if ($kamar_dipesan == 1) {
+				$harga_total = $hari * $kamar->harga_kamar;
+			}
+			if ($hari != 1 && $kamar_dipesan != 1) {
+				$harga_total = $harga_kamar + $harga_hari;
+			}
 
 			 $add['id_pegawai']= 4;
 		 	 $add['id_pengguna']=$this->input->post('txt_id_pengguna');
@@ -50,9 +63,8 @@ class Pemesanan extends CI_Controller {
          	 $add['tgl_check_out']= $tgl_check_out;
          	 $add['nama_tamu']= $this->input->post('txt_nama_tamu');
          	 $add['harga']= $harga_total;
-         	 $add['stat_pemesanan']= 'dipesan';
+         	 $add['stat_pemesanan']= 'belum check in';
          	 $add['keterangan']= $this->input->post('txt_keterangan');
-
          	
         	 $this->Reservasi_model->AddData('reservasi',$add);
         	 redirect(site_url('pengguna/Pemesanan/BuktiPemesanan'));
@@ -92,14 +104,42 @@ class Pemesanan extends CI_Controller {
 
 		$onjoin = "reservasi.id_pengguna=pengguna.id_pengguna";
 		$tampil = $this->Reservasi_model->GetPesananBaru($pengguna->id_pengguna)->row();
+
+		$tgl_check_in = $tampil->tgl_check_in;
+		$tgl_check_out = $tampil->tgl_check_out;
+		//ambil data cek In
+			$cek_in= date_create($tgl_check_in);
+			$date_Check_In = date_format($cek_in,"d");
+			$int_check_in = (int) $date_Check_In;
+			//ambil data cek out
+			$cek_out= date_create($tgl_check_out);
+			$date_Check_out = date_format($cek_out,"d");
+			$int_check_out = (int) $date_Check_out;
+
+			$hari = $int_check_out - $int_check_in;
+
+
 		$data['detail']['id_reservasi']= $tampil->id_reservasi;
 		$data['detail']['nama_pengguna']= $tampil->nama_pengguna;
 		$data['detail']['jml_kmr_dipesan']= $tampil->jml_kmr_dipesan;
 		$data['detail']['tgl_check_in']= $tampil->tgl_check_in;
 		$data['detail']['tgl_check_out']= $tampil->tgl_check_out;
+		$data['detail']['harga_kamar']= $tampil->harga_kamar;
+		$data['detail']['durasi']= $hari;
 		$data['detail']['nama_tamu']= $tampil->nama_tamu;
 		$data['detail']['harga']= $tampil->harga;
 		$data['detail']['keterangan']= $tampil->keterangan;
+
+			 $add['id_pegawai']= 4;
+			 $add['id_reservasi']= $tampil->id_reservasi;
+         	 $add['id_pengguna']=$pengguna->id_pengguna;
+         	 $add['total_harga']=$tampil->harga;
+         	 $add['jml_bayar']=0;
+         	 $add['status_pembayaran']='belum dibayar';
+         	 $add['keterangan_transaksi']='';
+
+         	 $this->Reservasi_model->AddData('transaksi',$add);
+
 		$this->load->view('pengguna/V_bukti_pemesanan', $data);
 	}
 
@@ -108,12 +148,26 @@ class Pemesanan extends CI_Controller {
 		$id_pengguna = $this->uri->segment(4);
 		$tampil = $this->Reservasi_model->GetDetailPesanan($id_pengguna)->row();
 
-		// $tampiljoin = $tampil = $this->Reservasi_model->GetDataJoinWhere('kamar', 'fasilitas', $onjoin, 'id_kamar', $id_kamar)->row();
+		$tgl_check_in = $tampil->tgl_check_in;
+		$tgl_check_out = $tampil->tgl_check_out;
+
+		$cek_in= date_create($tgl_check_in);
+			$date_Check_In = date_format($cek_in,"d");
+			$int_check_in = (int) $date_Check_In;
+			//ambil data cek out
+			$cek_out= date_create($tgl_check_out);
+			$date_Check_out = date_format($cek_out,"d");
+			$int_check_out = (int) $date_Check_out;
+
+			$hari = $int_check_out - $int_check_in;
+
 		$data['detail']['id_reservasi']= $tampil->id_reservasi;
 		$data['detail']['nama_pengguna']= $tampil->nama_pengguna;
 		$data['detail']['jml_kmr_dipesan']= $tampil->jml_kmr_dipesan;
 		$data['detail']['tgl_check_in']= $tampil->tgl_check_in;
 		$data['detail']['tgl_check_out']= $tampil->tgl_check_out;
+		$data['detail']['harga_kamar']= $tampil->harga_kamar;
+		$data['detail']['durasi']= $hari;
 		$data['detail']['nama_tamu']= $tampil->nama_tamu;
 		$data['detail']['harga']= $tampil->harga;
 		$data['detail']['keterangan']= $tampil->keterangan;

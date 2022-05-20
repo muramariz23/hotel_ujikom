@@ -22,6 +22,8 @@
         <h2 class="text-justify">Id Reservasi : <?php echo $detail['id_reservasi']; ?></h2>
 		<h2 class="text-justify">Nama Pengguna : <?php echo $detail['nama_pengguna']; ?></h2>
 		<h2 class="text-justify">Jumlah Kamar Dipesan : <?php echo $detail['jml_kmr_dipesan']; ?></h2>
+        <h2 class="text-justify">Durasi Pemesanan : <?php echo $detail['durasi']; ?> Hari</h2>
+        <h2 class="text-justify">Harga Per Kamar : Rp. <?php echo $detail['harga_kamar']; ?></h2>
         <h2 class="text-justify">Total Harga : Rp. <?php echo $detail['harga']; ?></h2>
 		<h2 class="text-justify">Tanggal Check In : <?php echo $detail['tgl_check_in']; ?></h2>
 		<h2 class="text-justify">Tanggal Check Out : <?php echo $detail['tgl_check_out']; ?></h2>

@@ -21,7 +21,7 @@
 
 	.wadah{
 		width: 350px;
-		height: 500px;
+		height: 600px;
 		position: absolute;
 		top: 10%;
 		left: 40%;
@@ -84,7 +84,9 @@
   </div>
   
   <button type="submit" class="btn btn-primary form-control">Submit</button>
+
 </form>
+<a href="<?php echo site_url('welcome') ?>"><button class="btn btn-small btn-warning" style="margin-left : 50px;">Kembali</button></a>
 </div>
 
 

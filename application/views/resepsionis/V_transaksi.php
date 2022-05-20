@@ -6,6 +6,19 @@
 </head>
 <body>
     <?php include 'partisi/navbar.php'; ?>
+
+    <?php if ($this->session->flashdata('success')) : ?>
+                            <div class="alert alert-success" role="alert">
+                                <?php echo $this->session->flashdata('success'); ?>
+                            </div>
+                        <?php endif; ?>
+               
+                 <?php if ($this->session->flashdata('warning')) : ?>
+                            <div class="alert alert-warning" role="alert">
+                                <?php echo $this->session->flashdata('warning'); ?>
+                            </div>
+                <?php endif; ?>
+
 <h1 class="text-center">DATA TRANSAKSI KAMAR</h1>
 
 
@@ -26,8 +39,11 @@
       <th>ID Transaksi</th>
       <th>Nama Pengguna</th>
       <th>Jumlah Kamar Dipesan</th>
+      <th>Tanggal Check In</th>
+      <th>Tanggal Check Out</th>
       <th>Nama Tamu</th>
       <th>Total Harga</th>
+      <th>Status Pembayaran</th>
       <th>Jumlah Dibayar</th>
       <th>Keterangan</th>
     </tr>
@@ -47,10 +63,19 @@
                 <?php echo $Get->jml_kmr_dipesan ?>
             </td>
             <td>
+                <?php echo $Get->tgl_check_in ?>
+            </td>
+             <td>
+                <?php echo $Get->tgl_check_out ?>
+            </td>
+            <td>
                 <?php echo $Get->nama_tamu ?>
             </td>
              <td>
                 <?php echo $Get->harga ?>
+            </td>
+            <td>
+                <?php echo $Get->status_pembayaran ?>
             </td>
             <td>
                 <?php echo $Get->jml_bayar ?>

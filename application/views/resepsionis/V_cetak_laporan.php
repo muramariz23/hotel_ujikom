@@ -16,7 +16,7 @@
 
 <body>
 <h1>DATA RESERVASI KAMAR</h1>
-
+<a href="<?php echo site_url('resepsionis/Reservasi'); ?>"><button class=" noPrint btn btn-small btn-warning">Kembali</button></a>
 
 <div class="card-header">
             <table class="table table-striped table-bordered" style="width:100%;">

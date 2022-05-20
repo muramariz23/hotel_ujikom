@@ -15,8 +15,17 @@
 </head>
 
 <body>
-<h1>DATA RESERVASI KAMAR</h1>
+<h1>DATA TRANSAKSI KAMAR</h1>
 
+<form action="" method="post" class="noPrint">
+          <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Filter Tanggal Transaksi</span>
+                    <input type="date" name="txt_filter_tanggal" class="form-control" placeholder="Pilih Tanggal Check In" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <input type="submit" class="btn btn-outline-primary" value="Cetak">
+      </form>
+
+<a href="<?php echo site_url('resepsionis/Transaksi'); ?>"><button class=" noPrint btn btn-small btn-warning">Kembali</button></a>
 
 <div class="card-header">
             <table class="table table-striped table-bordered" style="width:100%;">

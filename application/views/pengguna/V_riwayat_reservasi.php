@@ -56,9 +56,7 @@
             <td width="250">
                 <a href="<?php echo site_url('pengguna/Pemesanan/DataBuktiPesanan/'.$Get->id_reservasi) ?>"><button class="btn btn-primary">Cetak Bukti</button></a>
                 
-                <a 
-                 href="<?php echo site_url('admin/Fasilitas/DeleteFasilitas/'.$Get->id_fasilitas) ?>" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
-            </td>
+                </td>
         </tr>
         <?php endforeach; ?>
 

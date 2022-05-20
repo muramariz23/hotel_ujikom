@@ -19,7 +19,7 @@
             </div>
             <input type="submit" class="btn btn-outline-primary" value="Cari">
       </form>
-      <a href="<?php echo site_url('resepsionis/Reservasi/CetakLaporan') ?>"><button class="btn btn-primary">Cetak Laporan Reservasi</button></a>
+     
         <div class="table-responsive"> 
             <table id="myTable" class="table  table-striped table-bordered" style="width:100%;">
                 <thead class="bg-secondary text-white">
@@ -27,7 +27,7 @@
       <th>No</th>
       <th>ID Reservasi</th>
       <th>Nama Pengguna</th>
-      <th>Nomor Blok Kamar</th>
+      <th>Jumlah Kamar Dipesan</th>
       <th>Tanggal Check In</th>
       <th>Tanggal Check Out</th>
       <th>Nama Tamu</th>
@@ -48,7 +48,7 @@
                 <?php echo $Get->nama_pengguna ?>
             </td>
             <td>
-                <?php echo $Get->no_kamar ?>
+                <?php echo $Get->jml_kmr_dipesan ?>
             </td>
             <td>
                 <?php echo $Get->tgl_check_in ?>

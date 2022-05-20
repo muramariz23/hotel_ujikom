@@ -15,9 +15,18 @@
 </head>
 
 <body>
-<h1>DATA RESERVASI KAMAR</h1>
+<h1>DATA RIWAYAT RESERVASI KAMAR</h1>
 
-<button onclick="window.print()">Print this page</button>
+        <form action="" method="post" class="noPrint">
+          <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Filter Tanggal Transaksi</span>
+                    <input type="date" name="txt_filter_tanggal" class="form-control" placeholder="Pilih Tanggal Check In" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <input type="submit" class="btn btn-outline-primary" value="Cetak">
+      </form>
+<a href="<?php echo site_url('resepsionis/Reservasi'); ?>"><button class=" noPrint btn btn-small btn-warning">Kembali</button></a>
+
+
 <div class="card-header">
             <table class="table table-striped table-bordered" style="width:100%;">
                 <thead class="bg-secondary text-white">
@@ -30,7 +39,6 @@
       <th>Tanggal Check Out</th>
       <th>Nama Tamu</th>
       <th>Keterangan</th>
-      <th>Status</th>
     </tr>
   </thead>
   <tbody>
@@ -48,9 +56,6 @@
                 <?php echo $Get->nama_pengguna ?>
             </td>
             <td>
-                <?php echo $Get->no_kamar ?>
-            </td>
-             <td>
                 <?php echo $Get->tgl_check_in ?>
             </td>
             <td>
@@ -84,6 +89,10 @@
         }
     ]
 } );
+    </script>
+
+    <script type="text/javascript">
+        window.print();
     </script>
     
 <?php include 'partisi/footer.php'; ?>

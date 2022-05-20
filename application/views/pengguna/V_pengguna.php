@@ -21,10 +21,11 @@
 	<div class="card wadah bg-light">
 
 	<h1 class="text-center bg-info">PROFIL PENGGUNA</h1>
-	<h2>ID PENGGUNA : <?php echo $detail['id_pengguna'] ?></h2>
-	<h2>NAMA PENGGUNA : <?php echo $detail['nama_pengguna'] ?></h2>
-	<h2>EMAIL : <?php echo $detail['email'] ?></h2>
-	<h2>NOMOR TELEPON : <?php echo $detail['no_telepon'] ?></h2>
+	<h3>ID PENGGUNA : <?php echo $detail['id_pengguna'] ?></h3>
+	<h3>NAMA PENGGUNA : <?php echo $detail['nama_pengguna'] ?></h3>
+	<h3>NIK : <?php echo $detail['nik'] ?></h3>
+	<h3>EMAIL : <?php echo $detail['email'] ?></h3>
+	<h3>NOMOR TELEPON : <?php echo $detail['no_telepon'] ?></h3>
 	<br>
 	<div class="row">
 	<a class="col" href="<?php echo site_url('pengguna/Pengguna')?>"><button class="btn btn-warning">Kembali</button></a>
