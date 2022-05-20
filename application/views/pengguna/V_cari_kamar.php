@@ -15,7 +15,8 @@
   <div class="row my-auto">
     <?php foreach ($GetKamar as $Get) :?>
       <div class=" mx-auto mb-2 p-2 col-md-3 col-sm-6 card" style="width: 18rem; height: 25rem;">
-        <h4><?php echo $Get->no_kamar; ?></h4>
+        <h4>Rp.<?php echo $Get->harga_kamar; ?></h4>
+        <h4>Kamar Tersedia : <?php echo $Get->jml_kamar; ?></h4>
            <img class="w-50 h-50 mx-auto card" src="<?php echo base_url('assets/img/') . $Get->gambar_kamar ?>">
            <p>tipe kamar : <?php echo $Get->tipe_kamar; ?></p>
            <p>tipe kasur : <?php echo $Get->tipe_kasur; ?></p>

@@ -38,6 +38,14 @@ class Reservasi extends CI_Controller {
 
     		}
 
+
+    		function Logout()
+	{
+		$this->load->library('session');
+		$this->session->unset_userdata('Login');
+		redirect(site_url('Login'));
+	}
+
 }
 
 ?>

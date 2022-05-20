@@ -17,15 +17,18 @@
   <input type="hidden" name="txt_id_pengguna" value="<?php echo $detail['id_pengguna']?>">
 	
 
-<div class="input-group mb-3">
-  			<span class="input-group-text" id="inputGroup-sizing-default">Nomor Kamar</span>
+        <div class="input-group mb-3">
+  			<span class="input-group-text" id="inputGroup-sizing-default">Tipe Kamar/Tipe Kasur</span>
 		<select class="form-select" name="txt_id_kamar" aria-label="Default select example">
   			<?php foreach ($GetKamar as $Get) : ?>
-				<option value="<?php echo $Get->id_kamar ?>"><?php echo $Get->no_kamar; ?></option>
+				<option value="<?php echo $Get->id_kamar ?>"><?php echo $Get->tipe_kamar; ?>/<?php echo $Get->tipe_kasur; ?></option>
 			<?php endforeach; ?>
 		</select>
 		</div>
-
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Jumlah Kamar Yang Dipesan</span>
+            <input type="date" name="txt_jml_kmr_dipesan" class="form-control" placeholder="Pilih Tanggal Check In" aria-label="Username" aria-describedby="basic-addon1" required>
+        </div>
     <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Pilih Tanggak Check In</span>
             <input type="date" name="txt_tgl_check_in" class="form-control" placeholder="Pilih Tanggal Check In" aria-label="Username" aria-describedby="basic-addon1" required>

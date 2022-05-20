@@ -25,7 +25,12 @@
 	<h2>NAMA PENGGUNA : <?php echo $detail['nama_pengguna'] ?></h2>
 	<h2>EMAIL : <?php echo $detail['email'] ?></h2>
 	<h2>NOMOR TELEPON : <?php echo $detail['no_telepon'] ?></h2>
-	<a href="<?php echo site_url('pengguna/Pengguna/UbahData/'.$detail['id_pengguna']).'/view' ?>"><button class="btn btn-warning">UBAH DATA</button></a>
+	<br>
+	<div class="row">
+	<a class="col" href="<?php echo site_url('pengguna/Pengguna')?>"><button class="btn btn-warning">Kembali</button></a>
+	<a class="col" href="<?php echo site_url('pengguna/Pengguna/UbahData/'.$detail['id_pengguna']).'/view' ?>"><button class="btn btn-warning">UBAH DATA</button></a> 
+	
+</div>
 
 
 </div>

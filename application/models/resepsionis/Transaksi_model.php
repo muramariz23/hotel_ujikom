@@ -1,12 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Reservasi_model extends CI_Model
+class Transaksi_model extends CI_Model
 {
     function AddData($tabel, $data)
     {
         $this->db->insert($tabel,$data);
     }
+
 
     function UpdateData($tabel,$fieldid,$fieldvalue,$data)
     {
@@ -34,9 +35,10 @@ class Reservasi_model extends CI_Model
     function getAll()
     {
         $this->db->select('*');
-        $this->db->from('reservasi');
-        $this->db->join('kamar', 'reservasi.id_kamar=kamar.id_kamar');
-        $this->db->join('pengguna', 'reservasi.id_pengguna=pengguna.id_pengguna');
+        $this->db->from('transaksi');
+        $this->db->join('reservasi', 'transaksi.id_reservasi=reservasi.id_reservasi');
+        $this->db->join('pengguna', 'transaksi.id_pengguna=pengguna.id_pengguna');
+        $this->db->join('pegawai', 'transaksi.id_pegawai=pegawai.id_pegawai');
         $query = $this->db->get();
         return $query->result();
     }
@@ -47,20 +49,22 @@ class Reservasi_model extends CI_Model
         $this->db->select('*');
         $this->db->from($tabel1);
         $this->db->join($tabel2, $onjoin);
+        $this->db->join($tabel3, $onjoin);
         $this->db->where($id, $data);
         $query = $this->db->get();
         return $query;
     }
 
-    function AmbilDataPegawai($id_login)
+     function GetDataReservasi($id_reservasi)
     {
-        $query = $this->db->query("SELECT * FROM pegawai WHERE id_login = '$id_login'");
-        return $query;
-    }
 
-    function AmbilDataResepsionis()
-    {
-        $query = $this->db->query("SELECT * FROM pengguna WHERE id_pengguna = '15'");
+        $this->db->select('*');
+        $this->db->from('reservasi');
+        $this->db->join('kamar', 'reservasi.id_kamar=kamar.id_kamar');
+        $this->db->join('pengguna', 'reservasi.id_pengguna=pengguna.id_pengguna');
+        $this->db->join('pegawai', 'reservasi.id_pegawai=pegawai.id_pegawai');
+        $this->db->where('id_reservasi', $id_reservasi);
+        $query = $this->db->get();
         return $query;
     }
 
@@ -73,20 +77,11 @@ class Reservasi_model extends CI_Model
         return $query;
     }
 
-    function Batal($id_reservasi,$pegawai)
+    function AmbilDataPegawai($id_login)
     {
-        $query = $this->db->query("UPDATE reservasi SET
-    id_pegawai = $pegawai,
-    keterangan = 'DIBATALKAN'
-    WHERE id_reservasi = $id_reservasi;");
+        $query = $this->db->query("SELECT * FROM pegawai WHERE id_login = '$id_login'");
         return $query;
     }
 
-    function GetFilterWhere($tglCekIn)
-    {
-        $query = $this->db->query("SELECT * FROM reservasi JOIN pegawai ON reservasi.id_pegawai=pegawai.id_pegawai JOIN pengguna ON reservasi.id_pengguna=pengguna.id_pengguna JOIN kamar ON reservasi.id_kamar=kamar.id_kamar WHERE tgl_check_in LIKE '%$tglCekIn%'");
-        return $query->result();
-    }
-    
-} ?>
 
+}

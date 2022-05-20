@@ -28,6 +28,7 @@ class Fasilitas extends CI_Controller {
          	 $j_fas= $this->input->post('txt_j_fasilitas');
          	 $isi_fas= $this->input->post('txt_isi_fasilitas');  
         	 $this->Fasilitas_model->AddData($no_fas,$j_fas,$isi_fas);
+        	 $this->session->set_flashdata('success', 'Data Fasilitas Berhasil Ditambahkan');
         	 redirect(site_url('admin/Fasilitas '));
 	}
 
@@ -38,6 +39,7 @@ class Fasilitas extends CI_Controller {
          $j_fas= $this->input->post('txt_j_fasilitas');
          $isi_fas= $this->input->post('txt_isi_fasilitas');
          $this->Fasilitas_model->UpdateData($id_fas,$no_fas,$j_fas,$isi_fas);
+         $this->session->set_flashdata('success', 'Data Fasilitas Berhasil Diubah');
 		 redirect(site_url('admin/Fasilitas'));
 	}
 
@@ -46,6 +48,7 @@ class Fasilitas extends CI_Controller {
 	{
 		 $id_fasilitas=$this->uri->segment(4);
         	 $this->Fasilitas_model->DeleteData($id_fasilitas);
+        	 $this->session->set_flashdata('success', 'Data Berhasil Dihapus');
         	 redirect(site_url('admin/Fasilitas'));
 	}
 
@@ -67,12 +70,7 @@ class Fasilitas extends CI_Controller {
 
 
 	
-	function Logout()
-	{
-		$this->load->library('session');
-		$this->session->unset_userdata('Login');
-		redirect(site_url('Login'));
-	}
+	
 
 
 	// function EditFasilitas()

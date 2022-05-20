@@ -26,6 +26,8 @@ class Pegawai extends CI_Controller {
          	 $stat= $this->input->post('txt_status');  
          	 
         	 $this->Pegawai_model->AddDataUser($uname,$pass,$stat);
+
+        	 $this->session->set_flashdata('success', 'Data User Berhasil Ditambahkan');
         	 redirect(site_url('admin/Pegawai/DetailUser'));
 	}
 
@@ -56,6 +58,8 @@ class Pegawai extends CI_Controller {
          	 
 
         	 $this->Pegawai_model->AddDataPegawai($id_log,$nam_peg,$alamat,$stat_peg);
+
+        	 $this->session->set_flashdata('success', 'Data Pegawai Berhasil Ditambahkan');
         	 redirect(site_url('admin/Pegawai'));
 	}
 
@@ -69,6 +73,7 @@ class Pegawai extends CI_Controller {
          $update['alamat']= $this->input->post('txt_alamat');  
          $update['stat_pegawai']= $this->input->post('txt_stat_pegawai');
          $this->Pegawai_model->UpdateData('pegawai','id_pegawai',$id_pegawai,$update);
+        	 $this->session->set_flashdata('success', 'Data Pegawai Berhasil Diubah');
 		 redirect(site_url('admin/Pegawai'));
 	}
 
@@ -79,6 +84,7 @@ class Pegawai extends CI_Controller {
 		 $id_login=$this->uri->segment(5);
         	 $this->Pegawai_model->DeleteData('pegawai','id_pegawai',$id_pegawai);
         	 $this->Pegawai_model->DeleteData('login','id_login',$id_login);
+        	 $this->session->set_flashdata('success', 'Data Pegawai Berhasil Dihapus');
 
         	 redirect(site_url('admin/Pegawai'));
 	}
@@ -103,6 +109,6 @@ class Pegawai extends CI_Controller {
 			}
 
 		}
-
+		
 
 }

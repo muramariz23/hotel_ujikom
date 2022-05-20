@@ -50,6 +50,22 @@
 </style>
 </head>
 <body>
+
+				<?php if ($this->session->flashdata('success')) : ?>
+                            <div class="alert alert-success" role="alert">
+                                <?php echo $this->session->flashdata('success'); ?>
+                            </div>
+                        <?php endif; ?>
+                <?php if ($this->session->flashdata('danger')) : ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?php echo $this->session->flashdata('danger'); ?>
+                            </div>
+                <?php endif; ?>
+                 <?php if ($this->session->flashdata('warning')) : ?>
+                            <div class="alert alert-warning" role="alert">
+                                <?php echo $this->session->flashdata('warning'); ?>
+                            </div>
+                <?php endif; ?>
 	
 	<div class="card wadah font-monospace">
 		<h1 class="judul">LOGIN</h1>

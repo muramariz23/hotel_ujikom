@@ -21,26 +21,24 @@
 <div class="card-header">
             <table class="table table-striped table-bordered" style="width:100%;">
                 <thead class="bg-secondary text-white">
-    <tr>
+        <tr>
       <th>No</th>
-      <th>ID Reservasi</th>
+      <th>ID Transaksi</th>
       <th>Nama Pengguna</th>
       <th>Jumlah Kamar Dipesan</th>
-      <th>Jumlah Harga</th>
-      <th>Tanggal Check In</th>
-      <th>Tanggal Check Out</th>
       <th>Nama Tamu</th>
+      <th>Total Harga</th>
+      <th>Jumlah Dibayar</th>
       <th>Keterangan</th>
-      <th>Status</th>
     </tr>
   </thead>
   <tbody>
        <?php $no = 1; ?>
-        <?php foreach ($GetReservasi as $Get): ?>
+        <?php foreach ($GetTransaksi as $Get): ?>
         <tr>
             <td><?php echo $no++; ?></td>
             <td width="50">
-                <?php echo $Get->id_reservasi ?>
+                <?php echo $Get->id_transaksi ?>
             </td>
             <td>
                 <?php echo $Get->nama_pengguna ?>
@@ -49,22 +47,16 @@
                 <?php echo $Get->jml_kmr_dipesan ?>
             </td>
             <td>
+                <?php echo $Get->nama_tamu ?>
+            </td>
+             <td>
                 <?php echo $Get->harga ?>
             </td>
             <td>
-                <?php echo $Get->tgl_check_in ?>
-            </td>
+                <?php echo $Get->jml_bayar ?>
+            </td>            
             <td>
-                <?php echo $Get->tgl_check_out ?>
-            </td>
-            <td>
-                <?php echo $Get->nama_tamu ?>
-            </td>
-            <td>
-                <?php echo $Get->keterangan ?>
-            </td>
-            <td>
-                <?php echo $Get->stat_pemesanan ?>
+                <?php echo $Get->keterangan_transaksi ?>
             </td>
         </tr>
         <?php endforeach; ?>

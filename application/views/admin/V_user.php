@@ -5,7 +5,24 @@
     <?php include 'partisi/head.php'; ?>
 </head>
 <body>
-    <?php include 'partisi/navbar.php'; ?>
+
+
+<?php if ($this->session->flashdata('success')) : ?>
+                            <div class="alert alert-success" role="alert">
+                                <?php echo $this->session->flashdata('success'); ?>
+                            </div>
+                        <?php endif; ?>
+                <?php if ($this->session->flashdata('danger')) : ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?php echo $this->session->flashdata('danger'); ?>
+                            </div>
+                <?php endif; ?>
+                 <?php if ($this->session->flashdata('warning')) : ?>
+                            <div class="alert alert-warning" role="alert">
+                                <?php echo $this->session->flashdata('warning'); ?>
+                            </div>
+                <?php endif; ?>
+
 <h1>DATA USER</h1>
 
 
@@ -40,7 +57,7 @@
             </td>
             <td width="250">
                 <a href="<?php echo site_url('admin/Pegawai/Add/'.$Get->id_login).'/view' ?>"
-                 class="btn btn-small"><i class="fas fa-edit"></i> Lengkapi</a>
+                 class="btn btn-small btn-primary"> Lengkapi</a>
             </td>
         </tr>
         <?php endforeach; ?>

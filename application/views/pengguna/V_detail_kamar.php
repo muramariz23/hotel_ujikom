@@ -12,6 +12,8 @@
 		<div class="container card bg-light">
 		<div class="row">
 			<div class="card col-12 col-md-4 card">
+
+			<h3>Harga Kamar : Rp.<?php echo $detail['harga_kamar']; ?></h3>
 			<h3>Jumlah Kamar Tersedia : <?php echo $detail['jml_kamar']; ?></h3>
 
 			<h3>Tipe Kasur : <?php echo $detail['tipe_kasur']; ?></h3>
@@ -63,11 +65,11 @@
 				</div>
 				<div class="input-group mb-3">
   					<span class="input-group-text" id="basic-addon1">Pilih Tanggak Check In</span>
-  					<input type="date" name="txt_tgl_check_in" class="form-control" placeholder="Pilih Tanggal Check In" aria-label="Username" aria-describedby="basic-addon1" required>
+  					<input type="date" name="txt_tgl_check_in" min="2022-05-19" class="form-control" placeholder="Pilih Tanggal Check In" aria-label="Username" aria-describedby="basic-addon1" required>
 				</div>
 				<div class="input-group mb-3">
   					<span class="input-group-text" id="basic-addon1">Pilih Tanggal Check Out</span>
-  					<input type="date" name="txt_tgl_check_out" class="form-control" placeholder="Pilih Tanggal Check Out" aria-label="Username" aria-describedby="basic-addon1" required>
+  					<input type="date" name="txt_tgl_check_out" min="2022-05-19" class="form-control" placeholder="Pilih Tanggal Check Out" aria-label="Username" aria-describedby="basic-addon1" required>
 				</div>
 				<div class="input-group mb-3">
   					<span class="input-group-text" id="basic-addon1">Nama Tamu</span>

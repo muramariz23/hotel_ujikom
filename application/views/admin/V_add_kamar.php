@@ -6,7 +6,6 @@
 		
 </head>
 <body>
-<?php include 'partisi/navbar.php'; ?>
 
 <div class="card wadah bg-light">
 
@@ -15,8 +14,8 @@
 <form action="<?php echo site_url('admin/Kamar/AddKamar'); ?>" method="post" enctype="multipart/form-data">
 
 	<div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon1">Nomer Kamar</span>
-  <input type="text" name="txt_no_kamar" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
+  <span class="input-group-text" id="basic-addon1">Jumlah Kamar</span>
+  <input type="text" name="txt_jml_kamar" class="form-control" placeholder="Jumlah Kamar" aria-label="Username" aria-describedby="basic-addon1" required>
 </div>
 
 <div class="input-group mb-3">
@@ -53,9 +52,15 @@
 <div class="input-group mb-3">
 
   <span class="input-group-text" id="basic-addon1">Gambar Kamar</span>
-  <input type="file" name="txt_gambar_kamar" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
+  <input type="file" name="txt_gambar_kamar" class="form-control" placeholder="Pilih Gambar" aria-label="Username" aria-describedby="basic-addon1" required>
 </div>
 	
+  <div class="input-group mb-3">
+
+  <span class="input-group-text" id="basic-addon1">Harga Kamar</span>
+  <input type="number" name="txt_harga_kamar" class="form-control" placeholder="Harga" aria-label="Username" aria-describedby="basic-addon1" required>
+</div>
+
 	<input class="btn-outline-primary form-control" type="submit" value="Simpan">
 </form>
 

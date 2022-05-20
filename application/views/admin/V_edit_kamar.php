@@ -1,7 +1,7 @@
 	<!DOCTYPE html>
 <html>
 <head>
-	<title>Tambah Data</title>
+	<title>Ubah Data</title>
 	<?php include 'partisi/head.php'; ?>
 	<style>
 		.wadah{
@@ -17,8 +17,6 @@
 	</style>
 </head>
 <body>
-<?php include 'partisi/navbar.php'; ?>
-
 <div class="card wadah bg-light">
 
 	<h1>UBAH DATA KAMAR</h1>
@@ -26,17 +24,17 @@
 	<input type="hidden" name="txt_id_kamar" value="<?php echo $detail['id_kamar'] ?>">
 	
 	<div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon1">Nomer Kamar</span>
-  <input type="text" name="txt_no_kamar" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required> value="<?php echo $detail['no_kamar'] ?>">
+  <span class="input-group-text" id="basic-addon1">Jumlah Kamar Tersedia</span>
+  <input type="number" name="txt_jml_kamar" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required value="<?php echo $detail['jml_kamar'] ?>">
 </div>
 
 <div class="input-group mb-3">
   <label class="input-group-text" for="inputGroupSelect01">Tipe Kasur</label>
   <select class="form-select" name="txt_tipe_kasur" id="inputGroupSelect01">
   	<option selected value="<?php echo $detail['tipe_kasur'] ?>"><?php echo $detail['tipe_kasur'] ?></option>
-    <option value="single" required>>single</option>
-    <option value="double" required>>double</option>
-    <option value="twin" required>>twin</option>
+    <option value="single" required>single</option>
+    <option value="double" required>double</option>
+    <option value="twin" required>twin</option>
   </select>
 </div>
 
@@ -44,9 +42,9 @@
   <label class="input-group-text" for="inputGroupSelect01">Tipe Kamar</label>
   <select class="form-select" name="txt_tipe_kamar" id="inputGroupSelect01">
   	<option selected value="<?php echo $detail['tipe_kamar'] ?>"><?php echo $detail['tipe_kamar'] ?></option>
-    <option value="standar" required>>standar</option>
-    <option value="superior" required>>superior</option>
-    <option value="deluxe" required>>deluxe</option>
+    <option value="standar" required>standar</option>
+    <option value="superior" required>superior</option>
+    <option value="deluxe" required>deluxe</option>
   </select>
 </div>
 
@@ -62,7 +60,14 @@
 
 <div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">Gambar Kamar</span>
-  <input type="file" name="txt_gambar_kamar" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required> value="<?php echo $detail['gambar_kamar']; ?>">
+  <img style="width: 100px; height: 100px;" src="<?php echo base_url('assets/img/') . $detail['gambar_kamar'] ?>">
+  <input type="file" name="txt_gambar_kamar" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value="<?php echo $detail['gambar_kamar']; ?>">
+  <input type="hidden" name="txt_gam_lam" value="<?php echo $detail['gambar_kamar']; ?>">
+</div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">Harga Kamar</span>
+  <input type="number" name="txt_harga_kamar" class="form-control" placeholder="Harga" aria-label="Username" aria-describedby="basic-addon1" required value="<?php echo $detail['harga_kamar'] ?>">
 </div>
 	
 	<input class="btn-outline-primary form-control" type="submit" value="Simpan">

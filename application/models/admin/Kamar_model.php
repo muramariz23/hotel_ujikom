@@ -3,16 +3,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Kamar_model extends CI_Model
 {
-    function AddData($no_kam,$tipe_kas,$tipe_kam,$id_fas,$gam_kam)
+    function AddData($no_kam,$tipe_kas,$tipe_kam,$id_fas,$gam_kam,$har_kam)
     {
-        $query = $this->db->query("CALL simpan_kamar('$no_kam','$tipe_kas','$tipe_kam','$id_fas','$gam_kam');");
+        $query = $this->db->query("CALL simpan_kamar('$no_kam','$tipe_kas','$tipe_kam','$id_fas','$gam_kam','$har_kam');");
 
         return $query;
     }
 
-    function UpdateData($id_kam,$no_kam,$tipe_kas,$tipe_kam,$id_fas,$gam_kam)
+    function UpdateData($id_kam,$no_kam,$tipe_kas,$tipe_kam,$id_fas,$gam_kam,$har_kam)
     {
-        $query = $this->db->query("CALL ubah_kamar($id_kam,'$no_kam','$tipe_kas','$tipe_kam',$id_fas,'$gam_kam');");
+        $query = $this->db->query("CALL ubah_kamar($id_kam,'$no_kam','$tipe_kas','$tipe_kam',$id_fas,'$gam_kam','$har_kam');");
 
         return $query;
     }

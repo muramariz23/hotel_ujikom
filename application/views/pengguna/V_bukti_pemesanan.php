@@ -13,22 +13,27 @@
 }
     </style>
 </head>
-
-<div class="card container">
+<body class="bg-info">
+<div class="card container w-50 mt-3">
 	
 		<h1 class="mx-auto">BUKTI RESERVASI KAMAR</h1>
 		<div class="card bg-dark"></div>
 		<br>
-		<h2 class="mx-auto">Nama Pengguna : <?php echo $detail['nama_pengguna']; ?></h2>
-		<h2 class="mx-auto">Jumlah Kamar Dipesan : <?php echo $detail['jml_kmr_dipesan']; ?></h2>
-		<h2 class="mx-auto">Tanggal Check In : <?php echo $detail['tgl_check_in']; ?></h2>
-		<h2 class="mx-auto">Tanggal Check Out : <?php echo $detail['tgl_check_out']; ?></h2>
-		<h2 class="mx-auto">Nama Tamu : <?php echo $detail['nama_tamu']; ?></h2>
-		<h2 class="mx-auto">Keterangan : <?php echo $detail['keterangan']; ?></h2>
+        <h2 class="text-justify">Id Reservasi : <?php echo $detail['id_reservasi']; ?></h2>
+		<h2 class="text-justify">Nama Pengguna : <?php echo $detail['nama_pengguna']; ?></h2>
+		<h2 class="text-justify">Jumlah Kamar Dipesan : <?php echo $detail['jml_kmr_dipesan']; ?></h2>
+        <h2 class="text-justify">Total Harga : Rp. <?php echo $detail['harga']; ?></h2>
+		<h2 class="text-justify">Tanggal Check In : <?php echo $detail['tgl_check_in']; ?></h2>
+		<h2 class="text-justify">Tanggal Check Out : <?php echo $detail['tgl_check_out']; ?></h2>
+		<h2 class="text-justify">Nama Tamu : <?php echo $detail['nama_tamu']; ?></h2>
+		<h2 class="text-justify">Keterangan : <?php echo $detail['keterangan']; ?></h2>
+
 		<div class="card"></div>
-		<p>Silahkan screenshot atau unduh Bukti Reservasi untuk diperlihatkan kepada resepsionis saat melakukan check in hotel</p>
+		<p class="text-justify">Silahkan screenshot atau unduh Bukti Reservasi untuk diperlihatkan kepada resepsionis saat melakukan check in hotel</p>
 		<br>
-		<button onclick="window.print()">Print this page</button>
+		<button onclick="window.print()"  class=" noPrint btn btn-small btn-primary">Unduh Bukti</button>
+
+        <a href="<?php echo site_url('pengguna/Pengguna'); ?>"><button class=" noPrint btn btn-small btn-warning">Kembali</button></a>
 </div>
 
     <script>

@@ -84,7 +84,7 @@
 
 	<div class="container card mt-3">
 		<h1 class="text-center">Fasilitas-fasilitas Umum Yang Tersedia</h1>
-
+		
 		<div class="card "></div>
 	</div>
 

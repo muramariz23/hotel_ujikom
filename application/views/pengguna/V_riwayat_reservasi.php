@@ -6,7 +6,7 @@
 </head>
 <body>
 	
-<h1>RIWAYAT RESERVASI ANDA</h1>
+<h1>RESERVASI ANDA</h1>
 <a href="<?php echo site_url('pengguna/Pengguna') ?>"><button class="btn btn-warning">KEMBALI</button></a>
 	
 
@@ -18,7 +18,7 @@
     <tr>
       <th>No</th>
       <th>ID Reservasi</th>
-      <th>Nomer Kamar</th>
+      <th>Jumlah Kamar Dipesan</th>
       <th>Tgl Check In</th>
       <th>Tgl Check Out</th>
       <th>Nama Tamu</th>
@@ -36,7 +36,7 @@
                 <?php echo $Get->id_reservasi ?>
             </td>
             <td>
-                <?php echo $Get->no_kamar ?>
+                <?php echo $Get->jml_kmr_dipesan ?>
             </td>
             <td>
                 <?php echo $Get->tgl_check_in ?>

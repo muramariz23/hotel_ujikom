@@ -26,6 +26,7 @@
       <th>ID Reservasi</th>
       <th>Nama Pengguna</th>
       <th>Jumlah Kamar Dipesan</th>
+      <th>Total Harga</th>
       <th>Tanggal Check In</th>
       <th>Tanggal Check Out</th>
       <th>Nama Tamu</th>
@@ -48,6 +49,9 @@
             <td>
                 <?php echo $Get->jml_kmr_dipesan ?>
             </td>
+             <td>
+                <?php echo $Get->harga ?>
+            </td>
             <td>
                 <?php echo $Get->tgl_check_in ?>
             </td>
@@ -64,7 +68,7 @@
                 <?php echo $Get->stat_pemesanan ?>
             </td>
             <td width="300">
-                <a href="<?php echo site_url('resepsionis/Reservasi/CheckIn/'.$Get->id_reservasi) ?>"
+                <a href="<?php echo site_url('resepsionis/Transaksi/CheckIn/'.$Get->id_reservasi) ?>"
                  class="btn btn-small btn-success"> Check In</a>
                  <a href="<?php echo site_url('resepsionis/Reservasi/CheckOut/'.$Get->id_reservasi) ?>"
                  class="btn btn-small btn-warning"> Check Out</a>

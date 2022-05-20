@@ -17,7 +17,6 @@
 	</style>
 </head>
 <body>
-<?php include 'partisi/navbar.php'; ?>
 
 <div class="card wadah bg-light">
 

@@ -5,6 +5,9 @@ class Pengguna extends CI_Controller {
 
 	function __construct(){
 	parent::__construct();
+	if ($this->session->userdata('status') != 'pengguna') {
+            redirect(site_url('Login'));
+        }
 	$this->load->model('pengguna/Pengguna_model');
 	}
 
@@ -60,6 +63,7 @@ class Pengguna extends CI_Controller {
          	 $add['status']= $this->input->post('txt_status');
          	 
         	 $this->Pengguna_model->AddData('login',$add);
+
         	 redirect(site_url('pengguna/Pengguna/Berhasil'));
 	}
 
@@ -68,6 +72,8 @@ class Pengguna extends CI_Controller {
 		// $id_login = $this->Pengguna_model->GetDataBaru('login', 'id_login');
 		// $data['GetPengguna']= $this->Pengguna_model->GetDataWhere('login', 'id_login', $id_login);
 		$data['GetPengguna']= $this->Pengguna_model->GetDataBaru('login', 'id_login');
+
+        	 $this->session->set_flashdata('success', 'Registrasi Akun Berhasil');
 		$this->load->view('pengguna/V_berhasil', $data);
 	}
 
@@ -90,6 +96,7 @@ class Pengguna extends CI_Controller {
          	 
 
         	 $this->Pengguna_model->AddData('pengguna',$add);
+
         	 redirect(site_url('login'));
 	}
 
@@ -103,6 +110,8 @@ class Pengguna extends CI_Controller {
          $update['email']= $this->input->post('txt_email');  
          $update['no_telepon']= $this->input->post('txt_no_telepon');
          $this->Pengguna_model->UpdateData('pengguna','id_pengguna',$id_pengguna,$update);
+
+        	 $this->session->set_flashdata('success', 'Data Profile Anda Berhasil Diubah');
 		 redirect(site_url('pengguna/Pengguna'));
 	}
 

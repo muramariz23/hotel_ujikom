@@ -6,9 +6,21 @@ class Login extends CI_Controller{
 	$this->load->model('login_model');
 	}
 	function index(){		
-		$this->load->view('login_view');
+		if($this->session->userdata('akses') == 'admin'){
+				redirect('admin/Kamar');
+				}
+		if($this->session->userdata('akses') == 'pegawai'){
+				
+				redirect('resepsionis/Reservasi');
+				}
+		if ($this->session->userdata('akses') == 'pengguna') {
+				
+				redirect('pengguna/Pengguna');
+				}
+				$this->load->view('login_view');
 
 	}
+
 	function auth(){
 		$username = $this->input->post('username',TRUE);
 		$password = $this->input->post('password',TRUE);
@@ -27,7 +39,7 @@ class Login extends CI_Controller{
 			$this->session->set_userdata($sesdata);
 			if($status == 'admin'){
 				$this->session->set_userdata('akses','admin');
-				redirect('admin/Dashboard');
+				redirect('admin/Kamar');
 				}
 			elseif($status == 'pegawai'){
 				$this->session->set_userdata('akses','resepsionis');
@@ -39,15 +51,16 @@ class Login extends CI_Controller{
 				}
 			}
 			else
-				$this->session->set_flashdata('msg', 'Username or Passord is Wrong');
+				$this->session->set_flashdata('danger', 'Current Password Tidak Sesuai');
 				redirect('login');
 	}
-	function logout(){
+	
+	
+				function Logout()
+	{
 		$this->session->sess_destroy();
-		$url=base_url('');
-		redirect($url);
+		redirect('Login');
 	}
-				
 }
 ?>
  

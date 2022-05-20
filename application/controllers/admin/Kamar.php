@@ -8,7 +8,7 @@ class Kamar extends CI_Controller {
 
 	function __construct(){
 	parent::__construct();
-	if ($this->session->userdata('status') != 'admin') {
+	if ($this->session->userdata('akses') != 'admin') {
             redirect(site_url('Login'));
         }
 	$this->load->model('admin/Kamar_model');
@@ -28,11 +28,11 @@ class Kamar extends CI_Controller {
 
 	function AddKamar()
 	{
-		 	$no_kam=$this->input->post('txt_no_kamar');
+		 	$jml_kam=$this->input->post('txt_jml_kamar');
          	 $tipe_kas= $this->input->post('txt_tipe_kasur');
          	 $tipe_kam= $this->input->post('txt_tipe_kamar');  
          	 $id_fas= $this->input->post('txt_id_fasilitas');
-
+         	 $har_kam= $this->input->post('txt_harga_kamar');
 			$upload_gambar = $_FILES['txt_gambar_kamar']['name'];
 
 			if($upload_gambar) {
@@ -55,7 +55,9 @@ class Kamar extends CI_Controller {
 			}
 
 
-        	 $this->Kamar_model->AddData($no_kam,$tipe_kas,$tipe_kam,$id_fas,$Image);
+        	 $this->Kamar_model->AddData($jml_kam,$tipe_kas,$tipe_kam,$id_fas,$Image);
+
+        	 $this->session->set_flashdata('success', 'Data Kamar Berhasil Ditambahkan');
         	 redirect(site_url('admin/Kamar'));
 	}
 
@@ -64,11 +66,11 @@ class Kamar extends CI_Controller {
 	function EditKamar()
 	{
 		 $id_kam=$this->input->post('txt_id_kamar');
-		 $no_kam=$this->input->post('txt_no_kamar');
+		 $no_kam=$this->input->post('txt_jml_kamar');
          $tipe_kas= $this->input->post('txt_tipe_kasur');
          $tipe_kam= $this->input->post('txt_tipe_kamar');  
          $id_fas= $this->input->post('txt_id_fasilitas');  
-
+         $har_kam= $this->input->post('txt_harga_kamar');
          $upload_gambar = $_FILES['txt_gambar_kamar']['name'];
 
 			if($upload_gambar) {
@@ -85,15 +87,19 @@ class Kamar extends CI_Controller {
 				 $this->upload->initialize($config);
 
 				 if ($this->upload->do_upload('txt_gambar_kamar')) {
-				 	$gam_lam = $this->input->post('gam_lam');
+				 	$gam_lam = $this->input->post('txt_gam_lam');
 				 	if ($gam_lam != $this->input->post('txt_gambar_kamar')) {
 				 		unlink(FCPATH . '/assets/img/' . $gam_lam);
 				 	}
 					$Image = $this->upload->data('file_name');
-					$this->db->set('gambar_kamar', $Image);
+					$this->Kamar_model->UpdateData($id_kam,$no_kam,$tipe_kas,$tipe_kam,$id_fas,$Image,$har_kam);
+				}else{
+					$this->Kamar_model->UpdateData($id_kam,$no_kam,$tipe_kas,$tipe_kam,$id_fas,$gam_lam,$har_kam);
 				}
 			}
-         $this->Kamar_model->UpdateData($id_kam,$no_kam,$tipe_kas,$tipe_kam,$id_fas,$Image);
+         
+
+        	 $this->session->set_flashdata('success', 'Data Kamar Berhasil Diubah');
 		 redirect(site_url('admin/Kamar'));
 	}
 
@@ -109,6 +115,8 @@ class Kamar extends CI_Controller {
 		 	 unlink('./assets/img/' . $gambar_kamar);
         	 
 		 }
+
+        	 $this->session->set_flashdata('success', 'Data Kamar Berhasil Dihapus');
 		 redirect(site_url('admin/Kamar'));
         	
 	}
@@ -122,17 +130,17 @@ class Kamar extends CI_Controller {
 				$id_kamar = $this->uri->segment(4);
 				$tampil = $this->Kamar_model->GetDataJoinWhere($id_kamar);
 					$data['detail']['id_kamar']= $tampil->id_kamar;
-					$data['detail']['no_kamar']= $tampil->no_kamar;
+					$data['detail']['jml_kamar']= $tampil->jml_kamar;
 	            	$data['detail']['tipe_kasur']= $tampil->tipe_kasur;
 	            	$data['detail']['tipe_kamar']= $tampil->tipe_kamar;
 	            	$data['detail']['id_fasilitas']= $tampil->id_fasilitas;
 	            	$data['detail']['no_fasilitas']= $tampil->no_fasilitas;
 	            	$data['detail']['gambar_kamar']= $tampil->gambar_kamar;
+	            	$data['detail']['harga_kamar']= $tampil->harga_kamar;
 				$this->load->view('admin/V_edit_kamar', $data);
 
 			}
 
 		}
-
 
 } ?>

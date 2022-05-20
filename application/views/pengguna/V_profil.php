@@ -40,6 +40,7 @@
 	
 	<input class="btn-outline-primary form-control" type="submit" value="Simpan">
 </form>
+	<a class="col" href="<?php echo site_url('pengguna/Pengguna')?>"><button class="btn btn-warning">Kembali</button></a>
 
 
 </div>

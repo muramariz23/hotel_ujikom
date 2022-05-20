@@ -4,7 +4,7 @@ class Fasilitas_model extends CI_Model
 {
     function AddData($no_fas, $j_fas, $isi_fas)
     {
-        $query = $this->db->query("CALL simpan_fasilitas('','$no_fas','$j_fas','$isi_fas');");
+        $query = $this->db->query("CALL simpan_fasilitas('$no_fas','$j_fas','$isi_fas');");
 
         return $query;
     }

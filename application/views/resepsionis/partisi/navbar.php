@@ -18,6 +18,9 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="<?php echo site_url('resepsionis/Riwayat') ?>"><button class="btn btn-outline-light">Riwayat Reservasi</button></a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="<?php echo site_url('resepsionis/Transaksi') ?>"><button class="btn btn-outline-light">Transaksi</button></a>
+        </li>
       </ul>
       <a href="<?php echo site_url('Login/logout') ?>"><button class="btn btn-outline-light">LOG OUT</button></a>
         

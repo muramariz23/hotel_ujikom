@@ -23,16 +23,7 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="<?php echo site_url('admin/Reservasi') ?>"><button class="btn btn-outline-light">Reservasi</button></a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <button class="btn btn-outline-light">Tambah Data</button>
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="<?php echo site_url('admin/Fasilitas/Add') ?>">Fasilitas</a></li>
-            <li><a class="dropdown-item" href="<?php echo site_url('admin/Kamar/Add') ?>">Kamar</a></li>
-            <li><a class="dropdown-item" href="<?php echo site_url('admin/Pegawai/AddUser') ?>">Pegawai</a></li>
-            </ul>
-        </li>
+        
       </ul>
       <a href="<?php echo site_url('Login/logout') ?>"><button class="btn btn-outline-light">LOG OUT</button></a>
         

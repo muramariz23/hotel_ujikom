@@ -5,8 +5,27 @@
     <?php include 'partisi/head.php'; ?>
 </head>
 <body>
-    <?php include 'partisi/navbar.php'; ?>
+
+<?php include 'partisi/navbar.php'; ?>
+
+
+<?php if ($this->session->flashdata('success')) : ?>
+                            <div class="alert alert-success" role="alert">
+                                <?php echo $this->session->flashdata('success'); ?>
+                            </div>
+                        <?php endif; ?>
+                <?php if ($this->session->flashdata('danger')) : ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?php echo $this->session->flashdata('danger'); ?>
+                            </div>
+                <?php endif; ?>
+                 <?php if ($this->session->flashdata('warning')) : ?>
+                            <div class="alert alert-warning" role="alert">
+                                <?php echo $this->session->flashdata('warning'); ?>
+                            </div>
+                <?php endif; ?>
 <h1>DATA FASILITAS</h1>
+
 <a href="<?php echo site_url('admin/Fasilitas/Add') ?>">TAMBAH DATA</a><br>
 
 <div class="card-header">
